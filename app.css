@@ -42,7 +42,7 @@ nav{
     position: fixed;
     background: #12664F;
     width: 100%;
-    border-radius: 30px;
+    border-radius: 10PX;
     background-size: cover;
     padding: 50px 120px ;
     top:0;
@@ -382,7 +382,7 @@ nav .fa-solid {
 
 /*------------css for telephones*/
 
-@media only screen and (max-width:600px){
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
 
 
 .identifier{
