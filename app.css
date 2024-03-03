@@ -20,20 +20,35 @@ body{
     width: 100%;
     height: 100vh;
     background-size:cover;
+ 
     
 }
 .logo{
-    width:80px;
-    height:100px;
+   width:10%;
+   height: 100%;
+    border: 1px solid #AAD922;
+    border-radius:20px;
+
 
 }
 .container{
     padding: 10px 10%;
+   
 }
 nav{
     display:flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    background: #12664F;
+    width: 100%;
+    border-radius: 30px;
+    background-size: cover;
+    padding: 50px 120px ;
+    top:0;
+    left:0;
+    height: 10%;
+
 }
 nav ul li {
     display: inline-block;
@@ -42,6 +57,11 @@ nav ul li {
     list-style: none;
     margin:10px 40px;
 
+}
+
+.signing{
+    display: flex;
+    width:50%
 }
 nav ul li a{
     color:white;
@@ -101,8 +121,25 @@ width:100%;
 .columnn {
     flex-basis: 60% ;
 }
-.ME{
-cursor:pointer;
+
+@keyframes cursor {
+    50%{
+        border-color: transparent;
+
+    }
+    
+}
+
+@keyframes typing {
+    from{
+        width:0
+    }
+}
+.conten{
+     display: flex;
+     justify-content: center;
+     margin:10px 40px;
+     color: #AFDEDC;
 }
 .mama{
     color:pink;
