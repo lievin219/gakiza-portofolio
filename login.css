@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-size: cover;
-    background: #53599A;
+    background: #686868;
     background-position: center;
 }
 .sign-up-form{
@@ -26,6 +26,7 @@ input{
 
 p{
      font-size: 14px;
+     color: aliceblue;
 }
 .sign-up-form h1{
      color:#86BBD8 ;

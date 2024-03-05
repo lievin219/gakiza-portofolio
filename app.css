@@ -318,7 +318,7 @@ background: #ff04ff;
     text-align: start;
 }
 .CONTACTR p i{
-    color:#ff04ff;
+    color:#F9DC5C;
     margin-right: 15px;
     font-size: 25px;
 }
@@ -340,7 +340,7 @@ transition:transform(00.5s);
 }
 .btn.btn2{
     display: inline-block;
-    background: #ff04ff;
+    background: #35CE8D;
 }
 .contactm form{
     width:100%;
@@ -432,3 +432,49 @@ nav ul .fa-solid{
 .column{
     margin-bottom:30px ;
 }}
+@media (max-width: 767px) {.identifier{
+    margin-top:100px;
+    font-size:16px ;
+
+}
+.identifier H1{
+font-size: 30PX;
+}
+nav .fa-solid{
+display: block;
+font-size: 15px;
+}
+    
+
+nav ul{
+    background:#ababab;
+    position:fixed;
+    right: -100px;;
+    top:0;
+    width: 100px;
+    height: 100h;
+    padding-top:50px ;
+    border-radius: 20px;
+    z-index: 2;
+    transition:right 0.5s;
+  
+}
+nav ul li{
+    display:block;
+    margin:25px;
+}
+nav ul .fa-solid{
+    top:60px;
+    position:absolute;
+    left: 25px;
+    cursor: pointer;
+}
+.subtitles{
+    font-size: 14px;
+}
+.column,.columnn{
+    flex-basis: 100%;
+}
+
+.column{
+    margin-bottom:30px ;}}
