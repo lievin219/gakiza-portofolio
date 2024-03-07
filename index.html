@@ -174,11 +174,12 @@
                     </div>
                 <a href="gakizacv.pdf" class="btn btn2" download class="btn btn2">download cv </a></div>
                         <div class="contactm">
-                            <form >
-                                <input type="text" name="name" placeholder="your name" required>
-                                <input type="email" name="name" placeholder="your email" required>
-                                <textarea name="message"  rows="6" placeholder="your message"></textarea>
-                                <button type="submit" class="btn btn2">submitt</button>
+                            <form onsubmit="sendemaiil(); reset();return false">
+                                <input type="text" name="name" placeholder="your name" required id="fullname">
+                                <input type="email" name="name" placeholder="your email" required id="email">
+                                <textarea name="message"  rows="6" placeholder="your message" id="message"></textarea>
+                              
+                            <button type="submit" class="btn btn2" onclick="sendemail(); reset();return false">submitt</button>
                             </form>
                         </div>
                     </div>
@@ -197,6 +198,7 @@
               
             
        
-    <script src="index.js"></script>
+    
+    <script src=" https://smtpjs.com/v3/smtp.js"></script>        <script src="index.js"></script>
 </body>
 </html>

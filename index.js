@@ -1,4 +1,4 @@
-const myapp=[ 'take a breakfast', 'woork on your project' , 'play FIFA','yoo'];
+
 
 
 
@@ -29,3 +29,23 @@ function openmenu(){
 function closemenu(){
     sidemeu.style.right="-100px"
 }
+ const fullname=document.getElementById('fullname')
+ const email=document.getElementById('email');
+  
+  const message=document.getElementById("message")
+
+   function sendemail(){
+    Email.send({
+        Host : "smtp.gmail.com",
+        Username : "lievinm635@gmail.com",
+        Password : "Mugabekazilievin219@",
+        To : 'lievinm635@gmail.com',
+        From : "",
+        Subject : "This is the subject",
+        Body : "And this is the body"
+    }).then(
+      message => alert(message)
+    );
+   }
+
+ 
