@@ -10,10 +10,10 @@
     <div class="sign-up-form">
         <h1>sign up now </h1>
         <form action="">
-  <input type="email" class="iput-box" placeholder="your email" required>
-  <input type="password" class="input-box" placeholder="enter your password" required>
+  <input type="email" class="iput-box" placeholder="your email" required id="email">
+  <input type="password" class="input-box" placeholder="enter your password" required id="password">
   <p> <span><input type="checkbox"></span>i agree to the terms and  condition</p>
-  <button type="button" class="signup-btn">sign up</button>
+  <button type="button" class="signup-btn" onclick="signup()">sign up</button>
   <hr>
   <p class="or">OR</p>
   <button type="button" class="login-btn"  >Log in with email</button>
@@ -27,6 +27,26 @@
 
 
     </div>
-    
+    <script>
+         function signup(){
+let email=document.getElementById("email");
+ let passsword=document.getElementById("password");
+   if(email.value==""&&passsword.value==""){
+     alert('leease full all information')
+   }
+   else if(email.value==""&&passsword.value!==""){
+    alert('please enter your email')
+     
+   }
+   else if(email.value!==""&&passsword.value==""){
+alert('lease enter your password!')
+   }
+   else{
+      window.location.assign("index.html")
+   }
+   
+ 
+         }
+    </script>
 </body>
 </html>
