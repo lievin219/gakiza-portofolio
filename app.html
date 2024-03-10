@@ -27,6 +27,27 @@
 
 
     </div>
+    <script>
+        function signup(){
+let email=document.getElementById("email");
+let passsword=document.getElementById("password");
+  if(email.value==""&&passsword.value==""){
+    alert('leease full all information')
+  }
+  else if(email.value==""&&passsword.value!==""){
+   alert('please enter your email')
+    
+  }
+  else if(email.value!==""&&passsword.value==""){
+alert('lease enter your password!')
+  }
+  else{
+     window.location.assign("index.html")
+  }
+  
+
+        }
+   </script>
     
 </body>
 </html>
