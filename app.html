@@ -49,9 +49,10 @@ alert('please enter your password!')
    }
    else {
       window.location.assign("index.html")
+      localStorage.setItem("is-email:",email.value)
+    localStorage.setItem("ispassword:",password.value);
    }
-    localStorage.setItem("is-email:",email.value)
-    localStorage.setItem("ispassword:",password.value);}
+   }
      
     </script>
 </body>
