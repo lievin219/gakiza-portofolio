@@ -13,36 +13,29 @@
   <input type="email" class="iput-box" placeholder="your email" id="email">
   <input type="password" class="input-box" placeholder="enter your password" id="password">
   <p> <span><input type="checkbox"></span>remember me </p>
-  <button type="button" class="signup-btn">log in</button>
+  <button type="button" class="signup-btn" onclick="authentication()">log in</button>
   <p>  <a href="index.html">forgot your password ?</a></p>
+  <script>
+     function authentication(){
+        let email=document.getElementById('email').value
+         let password=document.getElementById('password').value
+         if(email=="lievinm635@gmail.com"&&password=='Mugabekazilievin219@'){
+            alert('login succesfully')
+              window.location.assign('index.html').alert('login succesfully!!')
+            
+         }
+         else{
+            alert(' invalid email or password:!!') 
+         }}
+     
+  </script>
  
 
-  <hr>
+ 
   
   
 
 
-        </form>
-
-
-
-
-    </div>
-    <script>
-        function authentication(){
-           let email=document.getElementById('email').value
-            let password=document.getElementById('password').value
-            if(email=="lievinm635@gmail.com"&&password=='Mugabekazilievin219@'){
-               alert('login succesfully')
-                 window.location.assign('index.html').alert('login succesfully!!')
-               
-            }
-            else{
-               alert(' invalid email or password:!!') 
-            }}
         
-     </script>
-    
-    
 </body>
 </html>
