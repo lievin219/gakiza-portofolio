@@ -3,200 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="app.css">
-    <script src="https://kit.fontawesome.com/061dbc8a5f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <link rel="manifest" href="manifest.json" />
+
 </head>
 <body>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-    <body>
-        <div id="header"
-        >
-    <div class="container
-    
-    ">
-<nav>
-    <img src="lievin.jpg" class="logo">
-    <ul id="sidemenu">
-        <li><a href="#header" class="active">home</a></li>
-        <li><a href="#portofolio">portofolio</a></li>
-        <li><a href="#contact">contact</a></li>
-        <li><a href="#muka">about</a></li>
-       
-       
-
-        <li><a href="#service">service</a></li>
-        <li><a href="app.html" class="signing">signup</a></li>
-        <i class="fa-solid fa-circle-xmark"  onclick="closemenu()"></i>
+    <div class="sign-up-form">
+        <h1>sign up now </h1>
+        <form action="">
+  <input type="email" class="iput-box" placeholder="your email"  id="email" required>
+  <input type="password" class="input-box" placeholder="enter your password"  id="password" required>
+  <p> <span><input type="checkbox" id="checkbox"></span>i agree to the terms and  condition</p>
+  <button type="submit" class="signup-btn" onclick="signup()">sign up</button>
+  <hr>
+  <p class="or">OR</p>
+  <button type="button" class="login-btn"  >Log in with email</button>
+ 
+<p> do you have an account ? <a href="login.html">sign in here </a></p>
 
 
-</ul>
-<i class="fa-solid fa-bars" onclick="openmenu()"></i>
-</nav>
-
-<div class="identifier">
-    <div class="animations">
-    <span class="text first-text">I ' am </span>
-    <span class="text second-text"> software developer</span>
-    <span class="text third-text"> Gakiza lievin</span><div>
-   
-        <H1>HI! I'M <span>GAKIZA </span><br>FROM RWANDA </H1>
-
-</div></div> </div>  
-<!--ABOUT--> 
-        <div id="muka">
-            <div class="mukw">
-                <div class="row">
-                    <div class="column"><img src="gakiza.jpg" ></div>
-
-                        <div class="columnn">
-                        <h1 class="mama">ABOUT ME </h1> 
-                        <p>Hi There! ✌️
-                             My name is Gakiza Lievin , I am a junior software engineer and Full stack developer. I've been working in the Tech industry for over 1 year now, I worked on different real world projects that helped me get experience and got to contribute to a positive change in the real world.
-                        </p> 
-                       <div class="subtitles"><p class="skills skill" onclick="opentab('skills')">SKiLLS</p>
-                        <p class="skills" onclick="opentab('experience')">EXPERIENCE</p>
-                        <p class="skills" onclick="opentab('education')">EDUCATION</p></div>
-                        <div class="work active" id="skills">
-                            <ul>
-                                <li><span >UI?ux</span> <br> web /app interfaces </li>
-                                <li><span>web</span> <br> web development  </li>
-                                <li><span >frontend</span> <br> HTML CSS JAVASCRIPT</li>
-                            </ul>
-                        </div>
-                        <div class="work" id="experience">
-                            <ul>
-                                <li><span >2023</span> <br> i designed  bussiness company website </li>
-                                <li><span>2020</span> <br> i worked a front end  </li>
-                                <li><span >2021</span> <br> i studied computter science</li>
-                            </ul>
-                        </div>
-                        <div class="work" id="education">
-                            <ul>
-                                <li><span >2019-2022</span> <br> i studied at ess finishing my highschool </li>
-                                <li><span>2022-2023</span> <br> i studed at w3 coding online/li>
-                                <li><span >2023-2024</span> <br> i studied at improved hub</li>
-                            </ul>
-                        </div>
-                            
-                            
-                        </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-----?------->
-                <div id="service">
-                    <div id="content">
-                        <div class="container">
-                   <h1 class="mama">my services</h1>
-                    <div class="serviceid"> 
-                    <div>
-                        <i class="fa-brands fa-codepen"></i>
-                        <h2>ui/ux design</h2>
-                        <p>  we formulate your website due to the  way you might need it ussually 
-                            in a masterpieces forms 
-                        </p>
-                        <a href="#"> Learn more</a>
-                    </div>
-                    <div>
-                        <i class="fa-duotone fa-code"></i>
-                        <h2>web design</h2>
-                        <p>  we formulate your website due to the  way you might need it ussually 
-                            in a masterpieces forms 
-                        </p>
-                        <a href="#"> Learn more</a>
-                    </div>
-                    
-                
-
-                <div>
-                    <i class="fa-brands fa-app-store"></i>
-                    <h2>app interfaces</h2>
-                    <p>  we formulate your website due to the  way you might need it ussually 
-                        in a masterpieces forms 
-                    </p>
-                    <a href="#"> Learn more</a>
-                </div>
-                    </div>
-                </div></div></div>
+        </form>
 
 
-            <div id="portofolio">
-                <div class="container">
-                    
-                        <h1 class="mama"> my projects</h1>
-                        <div class="worklist">
-                            <div class="worr">
-                                <img src="ui.jpeg" >
-                                <div class="layer">
-                                    <h3> website design</h3>
-                                    <p> here we build applications interfaces and desigh interfaces of 
-                                        webstites in way satsfying our clients  <a href="#"><i class="fa-solid fa-link"></i></a></p>
-                                </div>
-                            </div>
-                            <div class="worr">
-                                <img src="javascript.png" >
-                                <div class="layer">
-                                    <h3>  javascript</h3>
-                                    <p> all full tutorials of a javascript all here
-                                     we are delightened to help you <a href="#"><i class="fa-solid fa-link"></i></a></p>
-                                </div>
-                            </div>
-                            <div class="worr">
-                                <img src="sql.jpeg" >
-                                <div class="layer">
-                                    <h3>  sql development</h3>
-                                    <p> hybrid database enginer  and we stores data for 
-                                        the database of a given website 
-                                  <a href="#"><i class="fa-solid fa-link"></i></a>  </p>
-                                </div>
-                            </div>
-                           
-                        </div>
-
-                    
-                        <a href="https://github.com/lievin219?tab=repositories" class="btn"> see more</a>
-                </div>
-
-            </div>
-            <div id="contact">
-                <div class="container">  
-                    <div class="row">
-                        <div class="contactr"><h1 class="mama"> contact me</h1>
-                        <p> <i class="fa-solid fa-paper-plane"></i>gakizalievin219@gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i>0791957471</p>
-                    <div class="socialicons">
-                       <a href="https://instagram.com/_gakiza?igshid=OGQ5ZDc2ODk2ZA=="> <i class="fa-brands fa-instagram"></i></a>
-                       <a href="#"> <i class="fa-brands fa-linkedin"></i></a>
-                       <a href="#"><i class="fa-brands fa-facebook"></i> </a>
-                    </div>
-                <a href="gakizacv.pdf" class="btn btn2" download class="btn btn2">download cv </a></div>
-                        <div class="contactm">
-                            <form >
-                                <input type="text" name="name" placeholder="your name" required>
-                                <input type="email" name="name" placeholder="your email" required>
-                                <textarea name="message"  rows="6" placeholder="your message"></textarea>
-                                <button type="submit" class="btn btn2">submitt</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="copyright" >
-                    <p> made by gakiza<i class="fa-solid fa-copyright"></i><i class="fa-solid fa-globe"></i>through different coding piecers</p>
-                </div>
-            </div>
-            <div class="artilce-title"> 
-                <h1> articles through our page</h1>
-            </div>
 
 
-                
-              
-            
-       
-    <script src="index.js"></script>
+    </div>
+    <script>
+         function signup(){
+let email=document.getElementById("email");
+ let passsword=document.getElementById("password");
+ let checking=document.getElementById("checkbox");
+   if(email.value==""&&passsword.value==""){
+     alert('please full all information')
+   }
+   else if(email.value==""&&passsword.value!==""){
+    alert('please enter your email')
+     
+   }
+   else if(email.value!==""&&passsword.value==""){
+alert('please enter your password!')
+   }
+   else if(email.value!==""&&passsword.value!==""&&checking.checked==false){
+  alert('please you need to agree to terms and conditions!!')
+   }
+   else {
+      window.location.assign("index.html")
+      localStorage.setItem("is-email:",email.value)
+    localStorage.setItem("ispassword:",password.value);
+   }
+   }
+     
+    </script>
 </body>
 </html>
