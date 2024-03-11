@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <link rel="manifest" href="manifest.json" />
+
 </head>
 <body>
     <div class="sign-up-form">
@@ -47,12 +49,10 @@ alert('please enter your password!')
    }
    else {
       window.location.assign("index.html")
-   }}
-    let emailvalue=localStorage.setItem("is-email:",email)
-    let passwordvalue=localStorage.setItem("ispassword:",password);
-     console.log(emailvalue)
-     console.log(passwordvalue)
-         
+   }
+    localStorage.setItem("is-email:",email.value)
+    localStorage.setItem("ispassword:",password.value);}
+     
     </script>
 </body>
 </html>
