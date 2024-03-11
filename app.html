@@ -42,10 +42,10 @@ let email=document.getElementById("email");
    else if(email.value!==""&&passsword.value==""){
 alert('please enter your password!')
    }
-   else if(email.value.trim()!==""&&passsword.value!==""&&checking.checked==false){
+   else if(email.value!==""&&passsword.value!==""&&checking.checked==false){
   alert('please you need to agree to terms and conditions!!')
    }
-   else {
+   else if(email.value!==""&&passsword.value!==""&&checking.checked===true) {
       window.location.assign("index.html")
    }}
    
