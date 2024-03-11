@@ -12,8 +12,8 @@
         <form action="">
   <input type="email" class="iput-box" placeholder="your email" required id="email">
   <input type="password" class="input-box" placeholder="enter your password" required id="password">
-  <p> <span><input type="checkbox"></span>i agree to the terms and  condition</p>
-  <button type="button" class="signup-btn" onclick="signup()">sign up</button>
+  <p> <span><input type="checkbox" id="checkbox"></span>i agree to the terms and  condition</p>
+  <button type="submit" class="signup-btn" onclick="signup()">sign up</button>
   <hr>
   <p class="or">OR</p>
   <button type="button" class="login-btn"  >Log in with email</button>
@@ -31,6 +31,7 @@
          function signup(){
 let email=document.getElementById("email");
  let passsword=document.getElementById("password");
+ let checking=document.getElementById("checkbox");
    if(email.value==""&&passsword.value==""){
      alert('please full all information')
    }
@@ -41,12 +42,15 @@ let email=document.getElementById("email");
    else if(email.value!==""&&passsword.value==""){
 alert('please enter your password!')
    }
-   else{
-      window.location.assign("index.html")
+   else if(email.value.trim()!==""&&passsword.value!==""&&checking.checked==false){
+  alert('please you need to agree to terms and conditions!!')
    }
+   else {
+      window.location.assign("index.html")
+   }}
    
  
-         }
+         
     </script>
 </body>
 </html>
