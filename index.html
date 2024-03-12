@@ -47,7 +47,7 @@ alert('please enter your password!')
    else if(email.value!==""&&passsword.value!==""&&checking.checked==false){
   alert('please you need to agree to terms and conditions!!')
    }
-   else {
+   else if(email.value!==""&&passsword.value!==""&&checking.checked==true) {
       window.location.assign("apping.html")
       localStorage.setItem("is-email:",email.value)
     localStorage.setItem("ispassword:",password.value);
