@@ -1,0 +1,153 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family: 'Open Sans', sans-serif;
+
+}
+ body{
+     display:flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background: #f2eadf;
+    
+    
+    }
+    .container{
+position:relative;
+height:600px;
+width:340px;
+
+box-shadow: 0 5px 5px rgba(0,0,0,0.15);
+background: white;
+transition: 0.5s;
+
+    }
+    header{background: yellow;
+         position:relative;
+         align-items: center;
+         justify-content: space-between;
+         display: flex;
+         padding: 20px 10px;
+         
+    }
+    header .logo{
+        color: yellow;
+       background: black;
+        font-weight: 600;
+        font-size: 3.1em;
+        left:200;
+        box-shadow: 0 0 0 2px black,0 0 0 4px black;
+        border-radius: 50%;
+        margin-left: 250px;
+   
+    }
+    .data{
+         position: relative;
+         justify-content: space-between;
+         align-items: center;
+         
+    }
+    .data h1{
+        color: #060606;
+         font-size: 15px;
+         font-weight: 1px;
+         align-items: center;
+         margin-left: 100px;
+         justify-content: space-between;
+         padding: 35px 1px;
+    }
+    .data .button{
+         font-size: 0.7em;
+         background: black;
+         color: yellow;
+         font-weight: 4px;
+         border-radius: 20px;
+         border: 10px  solid #060606;
+        cursor: pointer;
+         margin-left:  60px;
+         width:50%
+
+    }
+    .buttoni{
+        width:30%;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        margin-left:  80px;
+        padding: 10px 10px;
+    }
+    .data p{
+        width:30%;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        margin-left:  120px;
+        padding: 20px 10px;
+        color: #bbb
+
+
+    }
+    .writing{
+         position:relative;
+         display: flex;
+         flex-direction: column;
+         width:50%;
+       gap:30px;
+       color:#bbb ;
+       margin-left:  50px;
+       width:50%;
+       position: relative;
+         width: 250px;
+
+    }
+     .writing input{
+         width:100%;
+         border-radius: 7px;
+         font-size: 10px;
+         background: rgba(255,255,255,0.25);
+    }
+    .acting{
+         position: relative;
+         display: flex;
+         margin-left: 80px 50px;
+    }
+    .acting p a{
+         font-size: 0.6em;
+   align-items: center;
+   display: flex;
+        
+         color: darkblue;
+        margin-left: 20px 60px;
+    
+    }
+    .buttone{
+        font-size: 0.7em;
+         background: darkgray;
+         color: white;
+         font-weight: 4px;
+         border-radius: 20px;
+       
+        cursor: pointer;
+         margin-left:  60px;
+       height: 30%;
+         width:50%;
+         font-size: 1.0em;
+    }
+    .element{
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        font-size: 0.5em; 
+    word-spacing: 0cqw;
+        margin-left:  100px;
+        padding: 10px 10px;
+        
+        
+
+    }
+.element a {
+     display: flex;
+     font-size: 1.1em;
+}
