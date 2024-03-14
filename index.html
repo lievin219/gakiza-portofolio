@@ -41,9 +41,12 @@ let email=document.getElementById("email").value;
  else if(email!==""&&password==""){
    alert('please enter your password')
  }
+ else if(email.value!==""&&password.length<=5){
+  alert('please add on some keys on password')
+ }
  else if(!emailPattern.test(email)){
    alert('please validate your email!!')
-   
+
  }
  else if(emailPattern.test(email)&&password!==""){
   let user_records=new Array()
