@@ -20,16 +20,27 @@
         let email=document.getElementById('email').value
          let password=document.getElementById('password').value
 
-         console.log(email)
-         console.log(password)
-         if(email=="gakizalievin219@gmail.com"&&password=='Mugabekazilievin219@'){
-            alert('login succesfully')
-              window.location.assign('apping.html').alert('login succesfully!!')
-            
-         }
-         else{
-            alert(' invalid email or password:!!') 
-         }
+          let user_recording=new Array()
+          user_recording=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem('users')):[]
+          if(user_recording.some((v)=>{
+             return v.email==email&&v.password==password
+          })){
+            alert('login succesfully!!')
+            let current_user=user_recording.filter((v)=>{
+               return v.email==email&&v.password==password
+            })[0]
+           
+            localStorage.setItem('email:',current_user.email)
+             localStorage.setItem('password:',current_user.password)
+             window.location.assign('apping.html').alert('login succesfully!!')
+           
+          }
+          else{
+
+            alert('login failed')
+
+          }
+          window.location.assign(apping.html)
       }
   </script>
  

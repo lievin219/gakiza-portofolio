@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Portfolio Admin</h1>
+    <form id="projectForm">
+      <input type="text" id="projectTitle" placeholder="Project Title" required>
+      <textarea id="projectDescription" placeholder="Project Description" required></textarea>
+      <input type="url" id="projectImage" placeholder="Image URL" required>
+      <button type="submit">Add Project</button>
+    </form>
+    <div id="projectsContainer"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
