@@ -15,7 +15,7 @@
   <input type="email" class="iput-box" placeholder="your email"  id="email" required>
   <input type="password" class="input-box" placeholder="enter your password"  id="password" required>
   <p> <span><input type="checkbox" id="checkbox"></span>i agree to the terms and  condition</p>
-  <button type="button" class="signup-btn" onclick="signuping()">sign up</button>
+  <button type="button" class="signup-btn" onclick="savedata()">sign up</button>
   <hr>
   <p class="or">OR</p>
   <button type="button" class="login-btn"  >Log in with email</button>
@@ -30,14 +30,42 @@
 
     </div>
     <script>
-         function signuping(){
-let email=document.getElementById("email");
- let passsword=document.getElementById("password");
+         function savedata(){
+let email=document.getElementById("email").value;
+ let password=document.getElementById("password").value;
  let checking=document.getElementById("checkbox");
- console.log(email)
- console.log(passsword)
- localStorage.setItem('user-email:',email);
- localStorage.setItem('user-password:',passsword)
+ if(email===""&&password!==""){
+  alert('please enter your email')
+ }
+ else if(email!==""&&password==""){
+   alert('please enter your password')
+ }
+ else if(email!==""&&password!==""){
+  let user_records=new Array()
+    user_records=JSON.parse(localStorage.getItem('users'))?JSON.parse(localStorage.getItem('users')):[]
+    // this first line  means if  data is available they will be retrieved else there is an empty array!!
+     if(user_records.some((v)=>{
+       return v.email==email
+     })){
+      alert('this email seems to be available in the system!!')
+     }
+     else{
+      
+      user_records.push({
+          "email":email,
+          "password":password
+      }
+      )
+      window.location.assign('login.html')
+      //we re going to store new data in the arrray
+      localStorage.setItem("users",JSON.stringify(user_records))
+     }
+     // this above condition is to compare new registration with available registerts of emails
+ }
+
+ 
+
+ 
   }
      
     </script>
