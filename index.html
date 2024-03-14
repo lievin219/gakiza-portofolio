@@ -15,7 +15,7 @@
   <input type="email" class="iput-box" placeholder="your email"  id="email" required>
   <input type="password" class="input-box" placeholder="enter your password"  id="password" required>
   <p> <span><input type="checkbox" id="checkbox"></span>i agree to the terms and  condition</p>
-  <button type="submit" class="signup-btn" onclick="signup()">sign up</button>
+  <button type="button" class="signup-btn" onclick="signuping()">sign up</button>
   <hr>
   <p class="or">OR</p>
   <button type="button" class="login-btn"  >Log in with email</button>
@@ -30,29 +30,15 @@
 
     </div>
     <script>
-         function signup(){
+         function signuping(){
 let email=document.getElementById("email");
  let passsword=document.getElementById("password");
  let checking=document.getElementById("checkbox");
-   if(email.value==""&&passsword.value==""){
-     alert('please full all information')
-   }
-   else if(email.value==""&&passsword.value!==""){
-    alert('please enter your email')
-     
-   }
-   else if(email.value!==""&&passsword.value==""){
-alert('please enter your password!')
-   }
-   else if(email.value!==""&&passsword.value!==""&&checking.checked==false){
-  alert('please you need to agree to terms and conditions!!')
-   }
-   else if(email.value!==""&&passsword.value!==""&&checking.checked==true) {
-      window.location.assign("apping.html")
-      localStorage.setItem("is-email:",email.value)
-    localStorage.setItem("ispassword:",password.value);
-   }
-   }
+ console.log(email)
+ console.log(passsword)
+ localStorage.setItem('user-email:',email);
+ localStorage.setItem('user-password:',passsword)
+  }
      
     </script>
 </body>

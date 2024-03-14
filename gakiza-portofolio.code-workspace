@@ -1,0 +1,11 @@
+{
+  "folders": [
+	{
+		"name": "gakiza-portofolio",
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5501
+  }
+}
