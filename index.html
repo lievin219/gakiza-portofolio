@@ -34,13 +34,17 @@
 let email=document.getElementById("email").value;
  let password=document.getElementById("password").value;
  let checking=document.getElementById("checkbox");
+ var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  if(email===""&&password!==""){
   alert('please enter your email')
  }
  else if(email!==""&&password==""){
    alert('please enter your password')
  }
- else if(email!==""&&password!==""){
+ else if(!emailPattern.test(email)){
+   alert('please validate your email!!')
+ }
+ else if(emailPattern.test(email)&&password!==""){
   let user_records=new Array()
     user_records=JSON.parse(localStorage.getItem('users'))?JSON.parse(localStorage.getItem('users')):[]
     // this first line  means if  data is available they will be retrieved else there is an empty array!!
