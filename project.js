@@ -1,31 +1,31 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const projectForm = document.getElementById('projectForm');
-    const projectTitle = document.getElementById('projectTitle');
-    const projectDescription = document.getElementById('projectDescription');
-    const projectImage = document.getElementById('projectImage');
-    const projectsContainer = document.getElementById('projectsContainer');
-  
-    projectForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const title = projectTitle.value.trim();
-      const description = projectDescription.value.trim();
-      const image = projectImage.value.trim();
-      if (title !== '' && description !== '' && image !== '') {
-        addProject(title, description, image);
-        projectForm.reset();
-      } else {
-        alert('Please fill in all fields.');
-      }
-    });
-  
-    function addProject(title, description, image) {
-      const projectElement = document.createElement('div');
-      projectElement.classList.add('project');
-      projectElement.innerHTML = `
-        <h2>${title}</h2>
-        <p>${description}</p>
-        <img src="${image}" alt="${title}">
-      `;
-      projectsContainer.appendChild(projectElement);
-    }
-  });
+  const commentForm = document.getElementById('commentForm');
+ const commentsContainer = document.getElementById('comments');
+ 
+ commentForm.addEventListener('submit', function(event) {
+     event.preventDefault();
+     
+     const comment = document.getElementById('comment').value;
+     const email = document.getElementById('email').value;
+     
+     if (comment && email) {
+         const commentElement = document.createElement('div');
+         commentElement.classList.add('comment');
+         commentElement.innerHTML = `
+             <div class="comment-header">
+                 <span>${email}</span>
+                 <span class="delete-btn" onclick="deleteComment(this)">Delete</span>
+             </div>
+             <div class="comment-body">${comment}</div>
+         `;
+         commentsContainer.appendChild(commentElement);
+         
+         commentForm.reset();
+     } else {
+         alert('Please fill in both comment and email fields.');
+     }
+ });
+ 
+ function deleteComment(deleteBtn) {
+     const comment = deleteBtn.parentElement.parentElement;
+     comment.remove();
+ }
