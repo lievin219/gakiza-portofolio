@@ -1,40 +1,25 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const commentForm = document.getElementById('commentForm');
-    const emailform=document.getElementById('youremail').value;
-    const commentInput = document.getElementById('commentInput');
-    const deletebutton=document.getElementById('delete');
-    const commentsContainer = document.getElementById('commentsContainer');
-  
-    commentForm.addEventListener('submit', function(event) {
+function addComment() {
+  var commentInput = document.getElementById("commentInput");
+  var commentText = commentInput.value.trim();
 
-      event.preventDefault();
-      const commentText = commentInput.value.trim();
-      if (commentText !== ''&&emailform!=='') {
-        addComment(commentText);
-        commentInput.value = '';
-        
-        emailform.value=''
-      }
-    });
-  
-    function addComment(commentText) {
-      const commentElement = document.createElement('div');
-      const removebutton=document.createElement('button')
-      removebutton.innerHTML='delete'
-      commentElement.classList.add('comment');
-      commentElement.textContent = commentText || emailform;
-      commentsContainer.appendChild(commentElement);
+  if (commentText !== "") {
+      var commentList = document.getElementById("commentList");
+
+      // Create comment element
+      var li = document.createElement("li");
+      li.className = "comment";
+      li.innerHTML = commentText + '<button class="remove-btn" onclick="removeComment(this)">X</button>';
       
-    }
-  });
-  commentsContainer.addEventListener('click',function(e){
-    if(e.target.tagName='BUTTON'){
-       e.target.parentElement.remove()
-    }
-   
-      },false)
-   
+      // Append comment to the list
+      commentList.appendChild(li);
 
+      // Clear the input field
+      commentInput.value = "";
+  }
+}
 
-
-   
+// Function to remove a comment
+function removeComment(commentElement) {
+  var parent = commentElement.parentNode;
+  parent.parentNode.removeChild(parent);
+}
