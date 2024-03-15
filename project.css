@@ -3,25 +3,61 @@ body {
     margin: 0;
     padding: 0;
     background: #031927;
+    color:white ;
 }
+nav ul li {
+    display: inline-block;
+    justify-content: space-between;
+    width:18px;
+    list-style: none;
+    margin:10px 40px}
+nav ul li a{
+    color:white;
+font-size: 18px;
+text-decoration: none;
+position:relative;
+}
+nav ul li a::after{
+    content: '';
+    background:orange;
+    width:0;
+    height:3px;
+    position:absolute;
+left:0;
+bottom: -6px;
+transition: 0.6s;
+}
+nav ul li a:hover::after{
+width:100%;
+};
 .container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #031927;
     border-radius: 5px;
     background-color: #12664F;
+    margin-top: 20%;
+    margin-left: 30%;
+}
+.container h1{
+     font-size: 30px;
 }
 .comment-section {
     margin-top: 20px;
+}
+.comments{
+     font-size: 20px;
+     color: #12664F;
+     background-color: #031927;
 }
 .comment {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #fff;
-}
+    background-color: #5c21c9;
+    font-size: 20px;}
 .comment-header {
     display: flex;
     justify-content: space-between;
@@ -33,4 +69,450 @@ body {
 .delete-btn {
     color: red;
     cursor: pointer;
+}
+@media (max-width: 575.98px) {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #031927;
+        color:white ;
+    }
+    nav ul li {
+        display: inline-block;
+        justify-content: space-between;
+        width:18px;
+        list-style: none;
+        margin:10px 40px}
+    nav ul li a{
+        color:white;
+    font-size: 18px;
+    text-decoration: none;
+    position:relative;
+    }
+    nav ul li a::after{
+        content: '';
+        background:orange;
+        width:0;
+        height:3px;
+        position:absolute;
+    left:0;
+    bottom: -6px;
+    transition: 0.6s;
+    }
+    nav ul li a:hover::after{
+    width:100%;
+    };
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid blue;
+        border-radius: 5px;
+        background-color: #12664F;
+        margin-top: 20%;
+        margin-left: 30%;
+    }
+    .container h1{
+         font-size: 30px;
+    }
+    .comment-section {
+        margin-top: 20px;
+    }
+    .comments{
+         font-size: 20px;
+         color: #12664F;
+         background-color: #031927;
+    }
+    .comment {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #5c21c9;
+        font-size: 20px;}
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .comment-body {
+        margin-top: 5px;
+    }
+    .delete-btn {
+        color: red;
+        cursor: pointer;
+    }
+}
+@media (min-width: 768px) {
+    /* Add your CSS rules here */
+    nav ul li {
+        display: inline-block;
+        justify-content: space-between;
+        width:18px;
+        list-style: none;
+        margin:10px 40px}
+    nav ul li a{
+        color:white;
+    font-size: 18px;
+    text-decoration: none;
+    position:relative;
+    }
+    nav ul li a::after{
+        content: '';
+        background:orange;
+        width:0;
+        height:3px;
+        position:absolute;
+    left:0;
+    bottom: -6px;
+    transition: 0.6s;
+    }
+    nav ul li a:hover::after{
+    width:100%;
+    };
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid blue;
+        border-radius: 5px;
+        background-color: #12664F;
+        margin-top: 10%;
+        margin-left: 5%;
+    }
+    .container h1{
+         font-size: 40px;
+    }
+    .comment-section {
+        margin-top: 20px;
+    }
+    .comments{
+         font-size: 20px;
+         color: #12664F;
+         background-color: #031927;
+    }
+    .comment {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #031927;
+        border-radius: 5px;
+        background-color: #031927;
+        color: white;
+        font-size: 20px;}
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .comment-body {
+        margin-top: 5px;
+    }
+    .delete-btn {
+        color: red;
+        cursor: pointer;
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #031927;
+        color:white ;
+    }
+    nav ul li {
+        display: block;
+        justify-content: space-between;
+        width:18px;
+        list-style: none;
+        margin:10px 40px}
+    nav ul li a{
+        color:white;
+    font-size: 18px;
+    text-decoration: none;
+    position:relative;
+    }
+    nav ul li a::after{
+        content: '';
+        background:orange;
+        width:0;
+        height:3px;
+        position:absolute;
+    left:0;
+    bottom: -6px;
+    transition: 0.6s;
+    }
+    nav ul li a:hover::after{
+    width:100%;
+    };
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid blue;
+        border-radius: 5px;
+        background-color: #12664F;
+        margin-top: 50%;
+        margin-left: 30%;
+    }
+    .container h1{
+         font-size: 30px;
+    }
+    .comment-section {
+        margin-top: 20px;
+    }
+    .comments{
+         font-size: 20px;
+         color: #12664F;
+         background-color: #031927;
+    }
+    .comment {
+        margin-bottom: 50px;
+        padding: 10px;
+        border: 1px solid #031927;
+        border-radius: 5px;
+        background-color: none;
+        font-size: 20px;
+
+    }
+    .comment-header {
+        display: flex;
+        font-size: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .comment-body {
+        margin-top: 5px;
+    }
+    .delete-btn {
+        color: red;
+        cursor: pointer;
+    }
+}
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        justify-content: space-between;
+        width:18px;
+        list-style: none;
+        margin:10px 20px}
+    nav ul li a{
+        color:white;
+    font-size: 18px;
+    text-decoration: none;
+    position:relative;
+    
+    }
+    nav ul li a::after{
+        content: '';
+        background:orange;
+        width:0;
+        height:3px;
+        position:absolute;
+    left: 20px;;
+    bottom: -6px;
+    transition: 0.6s;
+    }
+    nav ul li a:hover::after{
+    width:100%;
+    };
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid blue;
+        border-radius: 5px;
+        background-color: #12664F;
+        margin-top: 50%;
+        margin-left: 30%;
+    }
+    .container h1{
+         font-size: 30px;
+    }
+    .comment-section {
+        margin-top: 20px;
+    }
+    .comments{
+         font-size: 20px;
+         color: #12664F;
+         background-color: #031927;
+    }
+    .comment {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #031927;
+        border-radius: 5px;
+        background-color:white;
+        font-size: 20px;}
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .comment-body {
+        margin-top: 5px;
+    }
+    .delete-btn {
+        color: red;
+        cursor: pointer;
+    }
+}
+@media (max-width: 767px)
+{
+    nav ul li {
+        display:block;
+        left:20px;
+        justify-content: space-between;
+        width:18px;
+        list-style: none;
+        font-size: -10px;
+        margin:10px 40px}
+        nav .fa-solid{
+            display: block;
+            font-size: 15px;
+            }
+                
+    nav ul li a{
+        color:white;
+    font-size: 18px;
+    text-decoration: none;
+    position:relative;
+    }
+    nav ul li a::after{
+        content: '';
+        background:orange;
+        width:0;
+        height:3px;
+        position:absolute;
+    left:0;
+    bottom: -6px;
+    transition: 0.6s;
+    }
+    nav ul li a:hover::after{
+    width:100%;
+    };
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 15px;
+        width: 70%;
+        border: 5px solid blue;
+        border-radius: 5px;
+        background-color: #12664F;
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+    .container h1{
+         font-size: 30px;
+    }
+    .comment-section {
+        margin-top: 20px;
+    }
+    .comments{
+         font-size: 20px;
+         color: #12664F;
+         background-color: #031927;
+    }
+    .comment {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 10px solid #031927;
+        border-radius: 5px;
+        background-color: #031927;
+        color: white;
+        font-size: 15px;
+    width: 50%;}
+        
+
+        
+    .comment-header {
+        display: block;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .comment-body {
+        margin-top: 5px;
+    }
+    .delete-btn {
+        color: red;
+        cursor: pointer;
+    }
+}
+@media (min-width: 601px) and (max-width: 992px) {
+    /* Add your CSS rules here */body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #031927;
+    color:white ;
+}
+nav ul li {
+    display: block;
+    justify-content: space-between;
+    width:18px;
+    list-style: none;
+    margin:10px 40px}
+nav ul li a{
+    color:white;
+font-size: 10px;
+text-decoration: none;
+position:relative;
+display: block
+}
+nav ul li a::after{
+    content: '';
+    background:orange;
+    width:0;
+    height:3px;
+    position:absolute;
+left:0;
+bottom: -6px;
+transition: 0.6s;
+}
+nav ul li a:hover::after{
+width:100%;
+};
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    background-color: #12664F;
+    margin-top: 20%;
+    font-size: 50px;
+    margin-left: 30%;
+}
+.container h1{
+     font-size: 30px;
+}
+.comment-section {
+    margin-top: 20px;
+}
+.comments{
+     font-size: 20px;
+     color: #12664F;
+     background-color: #031927;
+}
+.comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #031927;
+    color: white;
+    font-size: 20px;}
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.comment-body {
+    margin-top: 5px;
+}
+.delete-btn {
+    color: red;
+    cursor: pointer;
+}
 }

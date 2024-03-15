@@ -18,7 +18,7 @@
              <div class="comment-body">${comment}</div>
          `;
          commentsContainer.appendChild(commentElement);
-         
+         commentsContainer.style.color='#A8DADC'
          commentForm.reset();
      } else {
          alert('Please fill in both comment and email fields.');
@@ -29,3 +29,9 @@
      const comment = deleteBtn.parentElement.parentElement;
      comment.remove();
  }
+ function openmenu(){
+    sidemeu.style.right="0";
+}
+function closemenu(){
+    sidemeu.style.right="-100px"
+}

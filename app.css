@@ -11,7 +11,7 @@ html{
 }
 body{
     background: #031927;
-    color: white;
+    color:white;
    
 }
 #header{
@@ -573,10 +573,14 @@ nav ul .fa-solid{
 
 .column{
     margin-bottom:30px ;
+}
+.mama p{
+     font-size: 20px;
+     left: 10px;
 }}
 @media (max-width: 767px) {
     .contenti{
-        width: 90%;
+        width: 50%;
         margin: 30px auto 30px;
         border: 1px solid  #12664F;
    }
@@ -588,13 +592,17 @@ nav ul .fa-solid{
        border: 1px solid transparent;
    }
    .contenti .main-contenti{
-       width: 70%;
+       width: 100%;
        float: left;
-      
+      margin-left: 10%;
+      height: 100%;
+      font-size: 40%;
    
    }
    .recent-post-title{
        color: pink;
+       font-size: 10px;
+       width: 40%;
    }
    .post-preview i{
        font-size: 10px;
@@ -602,10 +610,10 @@ nav ul .fa-solid{
        color: #AAD922;
    }
    .contenti .main-contenti .posting{
-       width: 95%;
-       height: 250px;
+       width: 75%;
+       height: 150px;
        margin:10px auto;
-       border-radius: 5px;
+       border-radius: 30px;
        background:  #12664F;
        color: white;
        position: relative;
@@ -633,6 +641,8 @@ nav ul .fa-solid{
    }
    .contenti .main-contenti .recent-post-title{
        margin: 25px;
+       width: 50%;
+       display: flex;
    }
    .clearfix::after{
        content: '';
@@ -640,11 +650,11 @@ nav ul .fa-solid{
        clear: both;
    }
    .contenti .sidebarii{
-       width: 30%;
-       float: left;
-       height: 300px;
-       border: 1px solid yellow;
-   }
+    width: 100%;
+    float: left;
+    height: 50px;
+    border: 1px solid yellow;
+}
     
     .identifier{
     margin-top:100px;
@@ -673,6 +683,10 @@ nav ul{
     transition:right 0.5s;
   
 }
+.columnn p{
+     font-size: 12px;
+     margin-left: 05.%;
+}
 nav ul li{
     display:block;
     margin:25px;
@@ -691,4 +705,5 @@ nav ul .fa-solid{
 }
 
 .column{
-    margin-bottom:30px ;}}
+    margin-bottom:30px ;}
+}
