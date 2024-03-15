@@ -41,7 +41,7 @@ let email=document.getElementById("email").value;
  else if(email!==""&&password==""){
    alert('please enter your password')
  }
- else if(email.value!==""&&password.length<=5){
+ else if(email.value!==""&&password.length<=5&&password.includes!=='number'){
   alert('please add on some keys on password')
  }
  else if(!emailPattern.test(email)){
