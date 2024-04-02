@@ -43,4 +43,4 @@ exports.app.post("/comment", midleware_1.require_auth, authcontrollers_3.comment
 exports.app.post("contact", midleware_1.require_auth, authcontrollers_3.contact_get);
 exports.app.delete("/delete/:id", midleware_1.require_auth, authcontrollers_2.deletecomment);
 // mongodb password:soFbc9DE42Yv7MKf
-exports.app.get("/article/getall", authcontrollers_1.getallblogs);
+exports.app.get("/article/getall", midleware_1.require_auth, authcontrollers_1.getallblogs);
