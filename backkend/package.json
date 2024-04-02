@@ -1,0 +1,43 @@
+{
+  "name": "backkend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "test": "test mocha --timeout 10000 dist/src/test.js,"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "@types/bcrypt": "^5.0.2",
+    "@types/supertest": "^6.0.2",
+    "@types/validator": "^13.11.9",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "joi": "^17.12.2",
+    "jsonwebtoken": "^9.0.2",
+    "supertest": "^6.3.4",
+    "swagger-ui-dist": "^5.13.0",
+    "ts-node": "^10.9.2",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.14",
+    "@types/express": "^4.17.21",
+    "@types/hapi__joi": "^17.1.14",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/mocha": "^10.0.6",
+    "@types/mongoose": "^5.11.97",
+    "chai": "^5.1.0",
+    "express": "^4.19.2",
+    "mocha": "^10.4.0",
+    "mongoose": "^8.2.3",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.3"
+  }
+}
