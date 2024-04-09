@@ -1,69 +1,49 @@
 {
   "name": "backkend",
-  "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
-    "test": "nyc mocha --require ts-node/register dist/test/*.test.js"
+    "test": " mocha --require ts-node/register dist/test/*.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "@types/bcrypt": "^5.0.2",
+    "@types/chai-http": "^4.2.0",
     "@types/cookie-parser": "^1.4.7",
+    "@types/express": "^4.17.21",
+    "@types/joi": "^17.2.3",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/mocha": "^10.0.6",
+    "@types/mongoose": "^5.11.97",
     "@types/sinon": "^17.0.3",
     "@types/supertest": "^6.0.2",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.6",
     "@types/validator": "^13.11.9",
     "bcrypt": "^5.1.1",
+    "chai": "^5.1.0",
+    "chai-http": "^4.4.0",
     "cookie-parser": "^1.4.6",
-    "ejs": "^3.1.9",
-    "joi": "^17.12.2",
+    "express": "^4.19.2",
+    "joi": "^17.12.3",
     "jsonwebtoken": "^9.0.2",
-    "nyc": "^15.1.0",
+    "mongoose": "^8.3.1",
+    "nodemon": "^3.1.0",
     "sinon": "^17.0.1",
     "supertest": "^6.3.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
-    "ts-node": "^10.9.2",
+    "typescript": "^5.4.4",
     "validator": "^13.11.0"
   },
   "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^1.0.2",
-    "@types/chai": "^4.3.14",
-    "@types/chai-http": "^4.2.0",
-    "@types/express": "^4.17.21",
-    "@types/hapi__joi": "^17.1.14",
-    "@types/jsonwebtoken": "^9.0.6",
-    "@types/mocha": "^10.0.6",
-    "@types/mongoose": "^5.11.97",
-    "chai": "^5.1.0",
-    "express": "^4.19.2",
-    "mocha": "^10.4.0",
-    "mongoose": "^8.2.3",
-    "nodemon": "^3.1.0",
-    "typescript": "^5.4.3"
-  },
-  "nyc": {
-    "extends": "@istanbuljs/nyc-config-typescript",
-    "all": true,
-    "reporter": [
-      "html",
-      "lcov",
-      "text",
-      "text-summary"
-    ],
-    "report-dir": "coverage",
-    "exclude": [
-      "**/*.d.ts",
-      "**/node_modules/**",
-      "src/**/*.ts"
-    ]
+    "@types/hapi__joi": "^17.1.14"
   }
 }
