@@ -23,6 +23,21 @@ describe('Contact Message API', () => {
             done();
         });
     });
+    it('should return an a logged in user', function (done) {
+        this.timeout(15000);
+        const credentials = { email: 'muaekalo.com' };
+        request(app)
+            .post('/login')
+            .send(credentials)
+            .expect(400)
+            .end((err, res) => {
+            if (err)
+                return done(err);
+            console.log(res.body.user.isAdmin);
+            expect(res.body).to.have.property('error');
+            done();
+        });
+    });
     // Test logging in with invalid credentials
     // Test logging in with missing fields
 });
@@ -51,7 +66,7 @@ describe('contact us!', () => {
         request(app)
             .post('/contact')
             .send(credentials)
-            .expect(400)
+            .expect(200)
             .end((err, res) => {
             if (err)
                 return done(err);
@@ -61,5 +76,37 @@ describe('contact us!', () => {
     });
     // Test logging in with invalid credentials
     // Test logging in with missing fields
+});
+describe('contact us!', () => {
+    it('should allow uses who have all credentials to commenton our blog', function (done) {
+        this.timeout(15000);
+        const credentials = { email: "45678mm", message: "wertuijhgfcvgbhj" };
+        request(app)
+            .post('/comment')
+            .send(credentials)
+            .expect(200)
+            .end((err, res) => {
+            if (err)
+                return done(err);
+            expect(res.body).to.have.property('error');
+            done();
+        });
+    });
+    // Test logging in with invalid credentials
+    // Test logging in with missing fields
+    it('should allow uses who have all credentials to commenton our blog', function (done) {
+        this.timeout(15000);
+        const credentials = { email: "45678mm@gmail.com", message: "wertuijhgfcvgbhj" };
+        request(app)
+            .post('/comment')
+            .send(credentials)
+            .expect(200)
+            .end((err, res) => {
+            if (err)
+                return done(err);
+            expect(res.body).to.have.property('error');
+            done();
+        });
+    });
 });
 //# sourceMappingURL=app.test.js.map

@@ -30,6 +30,22 @@ describe('Contact Message API', () => {
       });
 });
 
+it('should return an a logged in user', function(done) {
+  this.timeout(15000);
+  const credentials={email:'muaekalo.com'}
+  request(app)
+   
+  .post('/login')
+  .send(credentials)
+  .expect(400)
+  .end((err, res) => {
+      if (err)
+          return done(err);
+      console.log(res.body.user.isAdmin)
+      expect(res.body).to.have.property('error');
+      done();
+  });
+});
 // Test logging in with invalid credentials
 
 
@@ -73,7 +89,7 @@ describe('SIGN UP API', () => {
        
       .post('/contact')
       .send(credentials)
-      .expect(400)
+      .expect(200)
       .end((err, res) => {
           if (err)
               return done(err);
@@ -90,4 +106,45 @@ describe('SIGN UP API', () => {
     
     
     });
+    describe('contact us!', () => {
+
+      it('should allow uses who have all credentials to commenton our blog', function(done) {
+        this.timeout(15000);
+        const credentials={email:"45678mm",message:"wertuijhgfcvgbhj"}
+        request(app)
+         
+        .post('/comment')
+        .send(credentials)
+        .expect(200)
+        .end((err, res) => {
+            if (err)
+                return done(err);
+            
+            expect(res.body).to.have.property('error');
+            done();
+        });
+    });
+      
+      // Test logging in with invalid credentials
+      
+      // Test logging in with missing fields
+      it('should allow uses who have all credentials to commenton our blog', function(done) {
+        this.timeout(15000);
+        const credentials={email:"45678mm@gmail.com",message:"wertuijhgfcvgbhj"}
+        request(app)
+         
+        .post('/comment')
+        .send(credentials)
+        .expect(200)
+        .end((err, res) => {
+            if (err)
+                return done(err);
+            
+            expect(res.body).to.have.property('error');
+            done();
+        });
+    });
+      
+      
+      });
     

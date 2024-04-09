@@ -222,7 +222,7 @@ import { require_auth } from './midleware/index.js'
                 app.get("/logout",log_out)
                  /**
  * @swagger
- * /comments/:id:
+ * /comments/{id}:
  *   patch:
  *     summary: include a comment
  *     description: a user can comment
@@ -254,9 +254,11 @@ import { require_auth } from './midleware/index.js'
  *             schema:
  *               type: object
  *               properties:
- *                 user:
+ *                 email:
  *                   type: string
  *                   description: The ID of the registered user.
+ *                 message:
+ *                   type: string
  *       '400':
  *         description: Failed to register the user.
  *         content:
@@ -316,7 +318,7 @@ import { require_auth } from './midleware/index.js'
  */
     app.post("/contact",require_auth,contact_get)
               
-                app.get('/homi',(req,res)=>{
+                app.get('/homi',(req:express.Request,res:express.Response)=>{
                    res.json({message:`the project is runnig `})
                 })
                            /**
@@ -495,7 +497,7 @@ import { require_auth } from './midleware/index.js'
  *                   type: string
  *                   description: Error message.
  */
-           app.get("/article/getall",require_auth,getallblogs)
+           app.get("/article/getall",getallblogs)
 
             export default app
                                                                                 

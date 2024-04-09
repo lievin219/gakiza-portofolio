@@ -191,7 +191,7 @@ app.post("/login", login_post);
 app.get("/logout", log_out);
 /**
 * @swagger
-* /comments/:id:
+* /comments/{id}:
 *   patch:
 *     summary: include a comment
 *     description: a user can comment
@@ -223,9 +223,11 @@ app.get("/logout", log_out);
 *             schema:
 *               type: object
 *               properties:
-*                 user:
+*                 email:
 *                   type: string
 *                   description: The ID of the registered user.
+*                 message:
+*                   type: string
 *       '400':
 *         description: Failed to register the user.
 *         content:
@@ -457,6 +459,6 @@ app.delete("/delete/:id", require_auth, deletecomment);
 *                   type: string
 *                   description: Error message.
 */
-app.get("/article/getall", require_auth, getallblogs);
+app.get("/article/getall", getallblogs);
 export default app;
 //# sourceMappingURL=index.js.map

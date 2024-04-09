@@ -86,7 +86,7 @@ export const comment_post = async (req, res) => {
         const validate = await comment_validate.validateAsync(req.body);
         const newcommenti = await commentschemamodel.create({ email: validate.email, message: validate.message });
         await newcommenti.save();
-        res.json(newcommenti);
+        res.status(200).json(newcommenti);
     }
     catch (error) {
         res.status(400).json({ error: ` an error occured is ${error}` });

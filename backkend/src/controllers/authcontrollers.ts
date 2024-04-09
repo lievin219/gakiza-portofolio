@@ -1,5 +1,7 @@
  import express from 'express'
   import  Path  from 'path'
+  import app  from '../index'
+  import cookie from  'cookie-parser'
  
   import {getBlogs} from '../db/users.js'
   import {blog_validate}  from '../midleware/validate_schema.js'
@@ -130,7 +132,7 @@ import { isStrongPassword } from 'validator'
            const validate=await comment_validate.validateAsync(req.body)
           const newcommenti=await commentschemamodel.create({email:validate.email,message:validate.message})
           await newcommenti.save()
-           res.json(newcommenti)
+           res.status(200).json(newcommenti)
         }
          catch (error){
                 res.status(400).json({error:` an error occured is ${error}`})
