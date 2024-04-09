@@ -286,7 +286,7 @@ app.patch("/comments/:id", require_auth, update_comment);
 */
 app.post("/contact", require_auth, contact_get);
 app.get('/homi', (req, res) => {
-    res.json({ message: `the project is runnig ` });
+    res.json({ message: `the project is runnig on ${port} ` });
 });
 /**
 * @swagger
@@ -374,6 +374,9 @@ app.post("/blog", require_auth, blog_post);
 *                   description: Error message.
 */
 app.post("/comment", require_auth, comment_post);
+app.get('/words', (req, res) => {
+    res.json("it is no:w declared that to get all blogs it is not working usually!!");
+});
 /**
 * @swagger
 * /delete:id:

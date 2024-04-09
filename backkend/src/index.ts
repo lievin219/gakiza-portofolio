@@ -1,4 +1,4 @@
- import express from  'express'
+ import express, { response } from  'express'
   import mongoose from 'mongoose' 
   import cookie_parser from 'cookie-parser'
   import { dirname } from 'path';
@@ -408,6 +408,9 @@ import { require_auth } from './midleware/index.js'
  *                   description: Error message.
  */
                 app.post("/comment",require_auth,comment_post)
+                app.get('/words',(req:express.Request,res:express.Response)=>{
+                   res.json("it is no:w declared that to get all blogs it is not working usually!!")
+                })
 
  /**
  * @swagger
