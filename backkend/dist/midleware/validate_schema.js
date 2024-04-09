@@ -1,28 +1,23 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.blog_validate = exports.loginSchema = exports.comment_validate = exports.contact_validate = exports.authschema = void 0;
-const joi_1 = __importDefault(require("@hapi/joi"));
-exports.authschema = joi_1.default.object({
-    email: joi_1.default.string().email().lowercase().required(),
-    password: joi_1.default.string().min(5).required()
+import Joi from '@hapi/joi';
+export const authschema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().min(6).pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$')).required()
 });
-exports.contact_validate = joi_1.default.object({
-    name: joi_1.default.string().required(),
-    email: joi_1.default.string().email().lowercase().required(),
-    message: joi_1.default.string().uppercase().required().min(20)
+export const contact_validate = Joi.object({
+    name: Joi.string().required(),
+    email: Joi.string().email().required(),
+    message: Joi.string().required()
 });
-exports.comment_validate = joi_1.default.object({
-    email: joi_1.default.string().email().required(),
-    message: joi_1.default.string().lowercase().required()
+export const comment_validate = Joi.object({
+    email: Joi.string().email().required(),
+    message: Joi.string().lowercase().required()
 });
-exports.loginSchema = joi_1.default.object({
-    email: joi_1.default.string().email().required(),
-    password: joi_1.default.string().required()
+export const loginSchema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().required()
 });
-exports.blog_validate = joi_1.default.object({
-    title: joi_1.default.string().email().required(),
-    description: joi_1.default.string().lowercase().required()
+export const blog_validate = Joi.object({
+    title: Joi.string().required(),
+    description: Joi.string().lowercase().required()
 });
+//# sourceMappingURL=validate_schema.js.map

@@ -1,5 +1,5 @@
  import mongoose, { model, models } from 'mongoose'
-  const {isemail}=require("validator")
+
   import bcrypt from 'bcrypt'
   
   const userschema=new mongoose.Schema(({

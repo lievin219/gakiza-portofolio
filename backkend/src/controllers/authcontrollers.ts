@@ -1,16 +1,17 @@
  import express from 'express'
   import  Path  from 'path'
-  import {getBlogs} from '../db/users'
-  import {blog_validate}  from '../midleware/validate_schema'
+ 
+  import {getBlogs} from '../db/users.js'
+  import {blog_validate}  from '../midleware/validate_schema.js'
    import jwt from 'jsonwebtoken'
-import {blogschemamodel, deleteuserbyid} from '../db/users'
-   import { commentschemamodel, getuserByid, usermodel } from '../db/users'
-    import { authschema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema'
-   const roution=require('express')
-   import { contactschemamodel, createUser, login } from '../db/users'
+import {blogschemamodel, deleteuserbyid} from '../db/users.js'
+   import { commentschemamodel, getuserByid, usermodel } from '../db/users.js'
+    import { authschema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js'
+   
+   import { contactschemamodel, createUser, login } from '../db/users.js'
 import { isStrongPassword } from 'validator'
     
-   const apping=roution()
+   
     const handleerrors=(err:any)=>{
         console.log(err.message,err.code)
          let errors={email:"",password:""}
@@ -24,25 +25,24 @@ import { isStrongPassword } from 'validator'
     expiresIn:maxAge
   })
        }
-    const User=require("../db/users")
-  apping.use("/assets",express.static(Path.join(__dirname,"../../public/assets")))
-   
+    
+      
    export const signup_post=async(req:express.Request,res:express.Response)=>{
    
     try{
-    //  const {email,password}=req.body
+   
 
  const result=await authschema.validateAsync(req.body)
 
-     const uses=await createUser({email:result.email ,password:result.password}) 
-      const token=createtoken(uses._id)
+     const user=await createUser({email:result.email,password:result.password}) 
+      const token=createtoken(user._id)
       res.cookie("jwt",token,{httpOnly:true,maxAge:maxAge*1000})
         
-    return  res.status(201).json({uses:uses._id}).end()
-    }
+    return  res.status(200).json({user:user._id}).end()   
+    } 
      catch(error:any){
       if(error.isJoi==true){
-         return res.status(422).json({error:`joi displayed an error${error}`})
+         return res.status(400).json({error:`joi displayed an error${error}`})
       }
    
        return  res.status(400).send(`an error occured there is ${error} !!`)
@@ -111,7 +111,7 @@ import { isStrongPassword } from 'validator'
           const result=await contact_validate.validateAsync(req.body)
           
            const newcomment=await contactschemamodel.create({name:result.name,email:result.email,message:result.message})
-            return res.status(201).json({newcomment})
+            return res.status(200).json({newcomment:newcomment._id})
 
 
          }
@@ -121,15 +121,16 @@ import { isStrongPassword } from 'validator'
           }
            return  res.json({error:`an error occuring is ${error}`})
          }
+         
        
         }
         export const comment_post=async (req:express.Request,res:express.Response)=>{
         try{
 
            const validate=await comment_validate.validateAsync(req.body)
-          const newcomment=await commentschemamodel.create({email:validate.email,message:validate.message})
-          await newcomment.save()
-           res.json(newcomment)
+          const newcommenti=await commentschemamodel.create({email:validate.email,message:validate.message})
+          await newcommenti.save()
+           res.json(newcommenti)
         }
          catch (error){
                 res.status(400).json({error:` an error occured is ${error}`})
@@ -182,9 +183,9 @@ import { isStrongPassword } from 'validator'
             try{
     
                const validate_post=await blog_validate.validateAsync(req.body)
-              const newcomment=await blogschemamodel.create({title:validate_post.title,message:validate_post.description})
-              await newcomment.save()
-               res.json(newcomment)
+              const newcommente=await blogschemamodel.create({title:validate_post.title,description:validate_post.description})
+              await newcommente.save()
+               res.json(newcommente)
             }
              catch (error){
                     res.status(400).json({error:` an error occured is ${error}`})
