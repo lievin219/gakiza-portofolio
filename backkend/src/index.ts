@@ -319,7 +319,7 @@ import { require_auth } from './midleware/index.js'
     app.post("/contact",require_auth,contact_get)
               
                 app.get('/homi',(req:express.Request,res:express.Response)=>{
-                   res.json({message:`the project is runnig `})
+                   res.json({message:`the project is runnig on ${port} `})
                 })
                            /**
  * @swagger
