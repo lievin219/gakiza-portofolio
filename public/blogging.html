@@ -1,19 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css-covers/blogging.css">
-    <title></title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Blog</title>
+  <link rel="stylesheet" href="./assets/css-covers/stylesii.css">
 </head>
 <body>
-        
+  <div class="container">
+    <h1>Create a New Blog Post</h1>
+    <form id="blogForm">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required><br>
 
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="description" rows="4" cols="50" required></textarea><br>
 
-     <script>
+      <label for="image">Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required><br>
 
+      <button type="submit">Submit</button>
+    </form>
+    <div id="blogPosts"></div>
+  </div>
 
-     </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Load saved data
+  var savedData = JSON.parse(localStorage.getItem('blogData'));
+  if (savedData) {
+    document.getElementById('title').value = savedData.title;
+    document.getElementById('description').value = savedData.description;
+  }
+
+  // Display saved image
+  var savedImage = localStorage.getItem('blogImage');
+  if (savedImage) {
+    var imageElement = document.createElement('img');
+    imageElement.src = savedImage;
+    document.getElementById('blogPosts').appendChild(imageElement);
+  }
+
+  // Event listener for form submission
+  document.getElementById('blogForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+    
+    // Get form values
+    var title = document.getElementById('title').value;
+    var description = document.getElementById('description').value;
+    var image = document.getElementById('image').files[0];
+    
+    // Save data to localStorage
+    var blogData = {
+      title: title,
+      description: description
+    };
+    localStorage.setItem('blogData', JSON.stringify(blogData));
+    
+    // Save image to localStorage
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      localStorage.setItem('blogImage', event.target.result);
+    };
+    reader.readAsDataURL(image);
+    
+    // Reset form
+    document.getElementById('blogForm').reset();
+    
+    // Reload the page to display updated data
+    location.reload();
+  });
+});
+
+  </script>
 </body>
 </html>
