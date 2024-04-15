@@ -1,29 +1,29 @@
  import mongoose, { model, models } from 'mongoose'
-
-  import bcrypt from 'bcrypt'
+import bcrypt from 'bcrypt'
   
   const userschema=new mongoose.Schema(({
      email:{
-         type:String,
+            type:String,
           required:true,
-           lowercase:true,
            unique:true,
            
            
      },
       password:{
-         type:String,
+        type:String,
           required:true
           
       }
   }
    ))
-    userschema.pre('save',async function(next:any){
+   userschema.pre('save',async function(next:any){
          
-  const salt:any=await bcrypt.genSalt()
-   this.password=await bcrypt.hash(this.password,salt)
-        next()
-    })
+    const salt:any=await bcrypt.genSalt()
+     this.password=await bcrypt.hash(this.password,salt)
+          next()
+      })
+    
+    
     //schema for contact form 
     const contactschema=new mongoose.Schema(({
       name:{
@@ -88,7 +88,7 @@
         user.toObject())
         export const getuserByid=(id:string)=>commentschemamodel.findById(id)
         export const deleteuserbyid=(id:string)=>commentschemamodel.findOneAndDelete({_id:id});
-        
+        export const getuserbyemail=(email:string)=>usermodel.findOne({email})
        export const login=async function(email:any,password:any){
           const user=await usermodel.findOne({email})
            if(user){

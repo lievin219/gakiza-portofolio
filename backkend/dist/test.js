@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import app from './index.js';
 import request from 'supertest';
 before(function (done) {
-    app.listen(2188, () => {
+    app.listen(2182, () => {
         console.log(`Server is running on port 3001`);
     });
     setTimeout(done, 1000);
@@ -18,8 +18,23 @@ describe('Contact Message API', () => {
             .end((err, res) => {
             if (err)
                 return done(err);
-            console.log(res.body.user.isAdmin);
+            console.log(res.body.user);
             expect(res.body).to.have.property('user');
+            done();
+        });
+    });
+    it('should return an a logged in user', function (done) {
+        this.timeout(15000);
+        const credentials = { email: 'muaekalo.com', message: "hy there come on and we work together" };
+        request(app)
+            .post('/login')
+            .send(credentials)
+            .expect(200)
+            .end((err, res) => {
+            if (err)
+                return done(err);
+            console.log(res.body.user);
+            expect(res.body).to.have.property('error');
             done();
         });
     });
@@ -44,12 +59,12 @@ describe('SIGN UP API', () => {
     // Test logging in with invalid credentials
     // Test logging in with missing fields
 });
-describe('contact us', () => {
-    it('should allow uses who signed up to access the article page', function (done) {
+describe('contact us!', () => {
+    it('should allow uses who have valid email too contact us', function (done) {
         this.timeout(15000);
-        const credentials = { title: "gakizalievinhh45", message: "canwemovetowardstoseesomething111111wertyuygfddfgbwertytre" };
+        const credentials = { name: 'hhsfmwewem', email: "45678mm", message: "wertuijhgfcvgbhj" };
         request(app)
-            .post('/article')
+            .post('/contact')
             .send(credentials)
             .expect(200)
             .end((err, res) => {
@@ -62,10 +77,10 @@ describe('contact us', () => {
     // Test logging in with invalid credentials
     // Test logging in with missing fields
 });
-describe('contact us', () => {
-    it('should allow uses who signed up to access the article page', function (done) {
+describe('contact us!', () => {
+    it('should allow a user to  delete a blog', function (done) {
         this.timeout(15000);
-        const credentials = { email: "gakizalievinhh45", message: "canwemovetowardstoseesomething111111wertyuygfddfgbwertytre" };
+        const credentials = { email: "45678mm", message: "wertuijhgfcvgbhj" };
         request(app)
             .post('/comment')
             .send(credentials)
@@ -77,9 +92,23 @@ describe('contact us', () => {
             done();
         });
     });
-    it('should not allow when a user didn"t add a message ', function (done) {
+    it(' should allow at least a user to make a comment here', function (done) {
         this.timeout(15000);
-        const credentials = { email: "gakizalievinhh45" };
+        const credentials = { email: "456mm", message: "wertuijhgfcvgbhj" };
+        request(app)
+            .post('/comment')
+            .send(credentials)
+            .expect(200)
+            .end((err, res) => {
+            if (err)
+                return done(err);
+            expect(res.body).to.have.property('error');
+            done();
+        });
+    });
+    it('should allow  blog', function (done) {
+        this.timeout(15000);
+        const credentials = { email: "45678mm", message: "wertuijhgfcvgbhj" };
         request(app)
             .post('/comment')
             .send(credentials)
@@ -93,5 +122,19 @@ describe('contact us', () => {
     });
     // Test logging in with invalid credentials
     // Test logging in with missing fields
+    it('should allow uses who docummented our blog', function (done) {
+        this.timeout(15000);
+        const credentials = { email: "45678mm@gmail.com", message: "wertuijhgfcvgbhj" };
+        request(app)
+            .post('/comment')
+            .send(credentials)
+            .expect(200)
+            .end((err, res) => {
+            if (err)
+                return done(err);
+            expect(res.body).to.have.property('error');
+            done();
+        });
+    });
 });
 //# sourceMappingURL=test.js.map

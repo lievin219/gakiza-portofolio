@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/assets/css-covers/style.css">
+    <link rel="stylesheet" href="/public/assets/css-covers/style.css">
     <title>Document</title>
     <link rel="manifest" href="manifest.json">
 
@@ -11,70 +11,71 @@
 <body>
     <div class="sign-up-form">
         <h1>sign up now </h1>
-        <form action="">
+        <form id="form">
+          
   <input type="email" class="iput-box" placeholder="your email"  id="email" required>
+  <div id="emailerror"></div>
   <input type="password" class="input-box" placeholder="enter your password"  id="password" required>
-  <p> <span><input type="checkbox" id="checkbox"></span>i agree to the terms and  condition</p>
-  <button type="button" class="signup-btn" onclick="savedata()">sign up</button>
+  <div id="passworderror"></div>
+<button type="button" class="signup-btn" id="signupi">sign up</button>
   <hr>
   <p class="or">OR</p>
-  <button type="button" class="login-btn"  >Log in with email</button>
+  <button type="button" class="login-btn" >Log in with email</button>
  
 <p> do you have an account ? <a href="./public/login.html">sign in here </a></p>
 assets/css-covers/style.css
 
         </form>
 
-
+   
 
 
     </div>
     <script>
-         function savedata(){
-let email=document.getElementById("email").value;
- let password=document.getElementById("password").value;
- let checking=document.getElementById("checkbox");
- var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
- if(email===""&&password!==""){
-  alert('please enter your email')
- }
- else if(email!==""&&password==""){
-   alert('please enter your password')
- }
- else if(email.value!==""&&password.length<=5&&password.includes!=='number'){
-  alert('please add on some keys on password')
- }
- else if(!emailPattern.test(email)){
-   alert('please validate your email!!')
-
- }
- else if(emailPattern.test(email)&&password!==""){
-  let user_records=new Array()
-    user_records=JSON.parse(localStorage.getItem('users'))?JSON.parse(localStorage.getItem('users')):[]
-    // this first line  means if  data is available they will be retrieved else there is an empty array!!
-     if(user_records.some((v)=>{
-       return v.email==email
-     })){
-      alert('this email seems to be available in the system!!')
-     }
-     else{
+      const form=document.getElementById('form')
+    
+       const buttonsend=document.getElementById('signupi')
       
-      user_records.push({
-          "email":email,
-          "password":password
-      }
-      )
-      window.location.assign('public/login.html')
-      //we re going to store new data in the arrray
-      localStorage.setItem("users",JSON.stringify(user_records))
-     }
-     // this above condition is to compare new registration with available registerts of emails
- }
-
- 
-
- 
+        
+      buttonsend.addEventListener('click',async (e)=>{
+     e.preventDefault()
+     const emailing=document.getElementById('email').value
+      const passwording=document.getElementById('password').value
+       const buttonsend=document.getElementById('signupi')
+        const passworderror=document.getElementById('passworderror')
+        const emailerror=document.getElementById('emailerror')
+          try{
+  const res=await fetch('/signup',{
+    method:'POST',
+    body:JSON.stringify({email:emailing,password:passwording}),
+    headers:{ 'Content-Type':'application/json'}
+  })
+  const data=await res.json()
+   if(data.error){
+    emailerror.textContent=data.error.email
+    passworderror.textContent=data.error.password
+  console.log(data)
+  
   }
+  else if(data.user){
+     window.location.assign('logini')
+  }
+  
+          }
+         
+          catch(error){
+      console.log(error)
+          }
+        })
+     
+    </script>
+</body>
+</html>
+
+ 
+
+ 
+
      
     </script>
 </body>

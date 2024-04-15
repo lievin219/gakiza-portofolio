@@ -1,8 +1,9 @@
  import express, { response } from  'express'
   import mongoose from 'mongoose' 
   import cookie_parser from 'cookie-parser'
-  import { dirname } from 'path';
-  import  Path  from 'path'
+  import { isAdmin } from './midleware/index.js'
+  import path from 'path'
+ import  { fileURLToPath} from 'url'
   import swaggerUi from 'swagger-ui-express'
    import swaggerjsdoc from 'swagger-jsdoc'
   import {getallblogs} from './controllers/authcontrollers.js'
@@ -29,7 +30,7 @@ import { require_auth } from './midleware/index.js'
       },
       servers: [
         {
-          url: "http://localhost:1009"
+          url: "http://localhost:3000"
         }
       ],
       components: {
@@ -84,19 +85,44 @@ import { require_auth } from './midleware/index.js'
    
    export  const app=express()
   
- 
+    
     app.use(express.json())
+    
+    
     
      app.use(cookie_parser())
   
-      app.use("/api/docs",swaggerUi.serve,swaggerUi.setup(swaggerdocs))
+     app.use("/api/docs",swaggerUi.serve,swaggerUi.setup(swaggerdocs))
+     const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const staticPath = path.resolve(__dirname, '../../public/assets');
+     app.use('/public/assets', express.static(staticPath));
+   
 
 
+      app.get('/logini',(req:express.Request,res:express.Response)=>{
+        const indexpath=path.resolve(__dirname,'../../login.html')
+        res.sendFile(indexpath)
+       })
+       app.get('/main',(req:express.Request,res:express.Response)=>{
+        const indexpath=path.resolve(__dirname,'../../apping.html')
+        res.sendFile(indexpath)
+       })
+   app.get('/signupi',(req:express.Request,res:express.Response)=>{
+        const indexpath=path.resolve(__dirname,'../../index.html')
+        res.sendFile(indexpath)
+   })
+   app.get('/commenting',(req:express.Request,res:express.Response)=>{
+    const indexpath=path.resolve(__dirname,'../../project.html')
+    res.sendFile(indexpath)
+})
+
+  
+   
 
 
      
 
-     const port=1009
+     const port=3000
       
           const mongodb_url="mongodb+srv://gakizalievin219:soFbc9DE42Yv7MKf@cluster0.csy64ya.mongodb.net/"
            mongoose.connect(mongodb_url).then(()=>{
@@ -151,8 +177,8 @@ import { require_auth } from './midleware/index.js'
  *                   description: Error message.
  */
 
- 
-              
+            
+
                app.post("/signup",signup_post)
                /**
  * @swagger
@@ -363,7 +389,7 @@ import { require_auth } from './midleware/index.js'
  *                   type: string
  *                   description: Error message.
  */
-                app.post("/blog",require_auth,blog_post)
+                app.post("/blog",require_auth,isAdmin,blog_post)
  
               /**
  * @swagger

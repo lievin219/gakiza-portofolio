@@ -189,6 +189,26 @@ export declare const deleteuserbyid: (id: string) => mongoose.Query<(mongoose.Do
     email: string;
     message: string;
 }, "findOneAndDelete">;
+export declare const getuserbyemail: (email: string) => mongoose.Query<(mongoose.Document<unknown, {}, {
+    email: string;
+    password: string;
+}> & {
+    email: string;
+    password: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+}) | null, mongoose.Document<unknown, {}, {
+    email: string;
+    password: string;
+}> & {
+    email: string;
+    password: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+}, {}, {
+    email: string;
+    password: string;
+}, "findOne">;
 export declare const login: (email: any, password: any) => Promise<mongoose.Document<unknown, {}, {
     email: string;
     password: string;

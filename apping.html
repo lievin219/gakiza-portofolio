@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css-covers/app.css">
+    <link rel="stylesheet" href="public/assets/css-covers/app.css">
     <script src="https://kit.fontawesome.com/061dbc8a5f.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -26,10 +26,10 @@
 
         <li><a href="#service">service</a></li>
         <li><a href="#service">Logout</a></li>
-        <li><a href="project.html">comment</a></li>
+        <li><a href="./project.html">comment</a></li>
         <i class="fa-solid fa-circle-xmark"  onclick="closemenu()"></i>
 
-
+                
 </ul>
 <i class="fa-solid fa-bars" onclick="openmenu()"></i>
 </nav>
@@ -47,7 +47,7 @@
         <div id="muka">
             <div class="mukw">
                 <div class="row">
-                    <div class="column"><img src="inde/gakiza.jpg" ></div>
+                    <div class="column"><img src="public/assets/inde/gakiza.jpg" ></div>
 
                         <div class="columnn">
                         <h1 class="mama">ABOUT ME </h1> 
@@ -128,7 +128,7 @@
                         <h1 class="mama"> my projects</h1>
                         <div class="worklist">
                             <div class="worr">
-                                <img src="assets/inde/ui.jpeg" >
+                                <img src="public/assets/inde/ui.jpeg" >
                                 <div class="layer">
                                     <h3> website design</h3>
                                     <p> here we build applications interfaces and desigh interfaces of 
@@ -136,7 +136,7 @@
                                 </div>
                             </div>
                             <div class="worr">
-                                <img src="assets/inde/javascript.png" >
+                                <img src="public/assets/inde/javascript.png" >
                                 <div class="layer">
                                     <h3>  javascript</h3>
                                     <p> all full tutorials of a javascript all here
@@ -144,7 +144,7 @@
                                 </div>
                             </div>
                             <div class="worr">
-                                <img src="assets/inde/sql.jpeg" >
+                                <img src="public/assets/inde/sql.jpeg" >
                                 <div class="layer">
                                     <h3>  sql development</h3>
                                     <p> hybrid database enginer  and we stores data for 
@@ -175,10 +175,10 @@
                         <div class="contactm">
                             <form action="https://api.web3forms.com/submit" method="POST">
                                 <input type="hidden" name="access_key" value="0176cabd-2bf7-4879-887c-c8c96acad4be">
-                                <input type="text" name="name" placeholder="your name" required>
-                                <input type="email" name="email" placeholder="your email" required>
-                                <textarea name="message"  rows="6" placeholder="your message"></textarea>
-                                <button type="submit" class="btn btn2">submitt</button>
+                                <input type="text" name="name" placeholder="your name" required id="namei">
+                                <input type="email" name="email" placeholder="your email" required id="emaili">
+                                <textarea name="message"  rows="6" placeholder="your message" id="messagei"></textarea>
+                                <button type="submit" class="btn btn2" id="submittingi">submitt</button>
                             </form> 
                                                                                                                                                            
                         </div>
@@ -190,7 +190,7 @@
 <div class="main-contenti">
     <h1 class="recent-post-title">BLOG PAGE</h1>
     <div class="posting">
-        <img src="assets/inde/lievin.jpg" alt="" class="post-image">
+        <img src="public/assets/inde/hisexcellency.jpg.jpeg" alt="" class="post-image">
         <div class="post-preview">
             <h1><a href="single.html">  his excellency paul kagame  </a></h1>
             <i class="fa fa-user-circle" aria-hidden="true">GAKIZA Lievin</i>
@@ -206,7 +206,7 @@
         </div>
     </div>
     <div class="posting">
-        <img src="assets/inde/andela.jpg" alt="" class="post-image">
+        <img src="public/assets/inde/andela.jpg" alt="" class="post-image">
         <div class="post-preview">
             <h1><a href="single.html">  rwanda in partnership with andela  </a></h1>
             <i class="fa fa-user-circle" aria-hidden="true">GAKIZA Lievin</i>
@@ -222,7 +222,7 @@
         </div>
     </div>
     <div class="posting">
-        <img src="assets/inde/programme.jpeg" alt="" class="post-image">
+        <img src="public/assets/inde/cr7.jpeg" alt="" class="post-image">
         <div class="post-preview">
             <h1><a href="single.html">  Ada Lovelace </a></h1>
             <i class="fa fa-user-circle" aria-hidden="true">GAKIZA Lievin</i>
@@ -271,6 +271,6 @@
               
             
        
-    <script src="./assets/js/index.js"></script>
+    <script src="public/assets/js/index.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import { getBlogs } from '../db/users.js';
+import { getBlogs, getuserbyemail } from '../db/users.js';
 import { blog_validate } from '../midleware/validate_schema.js';
 import jwt from 'jsonwebtoken';
 import { blogschemamodel, deleteuserbyid } from '../db/users.js';
@@ -19,17 +19,25 @@ const createtoken = (id) => {
 };
 export const signup_post = async (req, res) => {
     try {
-        const result = await authschema.validateAsync(req.body);
-        const user = await createUser({ email: result.email, password: result.password });
-        const token = createtoken(user._id);
-        res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
-        return res.status(200).json({ user: user._id }).end();
+        const result = await authschema.validateAsync(req.body, { abortEarly: false });
+        const existingusr = await getuserbyemail(result.email);
+        if (existingusr) {
+            res.json({ error: `this user already exists` });
+        }
+        else {
+            const user = await createUser({ email: result.email, password: result.password });
+            const token = createtoken(user._id);
+            res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+            return res.status(200).json({ user: user._id }).end();
+        }
     }
     catch (error) {
         if (error.isJoi == true) {
             return res.status(400).json({ error: `joi displayed an error${error}` });
+            console.log(`joi displayed an error${error}`);
         }
         return res.status(400).send(`an error occured there is ${error} !!`);
+        console.log(`an error occured there is ${error} !!`);
     }
 };
 export const getallblogs = async (req, res) => {
@@ -48,15 +56,16 @@ export const signup_get = async (req, res) => {
     res.json({ message: "user registerd!!" });
 };
 export const login_post = async (req, res) => {
-    // const{email,password}=req.body
     try {
-        const result = await loginSchema.validateAsync(req.body);
+        const result = await loginSchema.validateAsync(req.body, { abortEarly: false });
         const user = await login(result.email, result.password);
         const token = createtoken(user._id);
         res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+        alert('login succesfully!');
         return res.json({ user: user._id }).end();
     }
     catch (error) {
+        alert('an error occuring');
         if (error.isJoi == true) {
             return res.json({ error: `joi displayed this speccific error${error}` });
         }

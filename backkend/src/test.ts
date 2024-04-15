@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import app from '../index.js'
+import app from './index.js'
  import request from 'supertest'
-import { login_post } from '../controllers/authcontrollers.js'; // Import your function
+import { login_post } from './controllers/authcontrollers.js'; // Import your function
 import express, { Request, Response } from 'express';
 import sinon from 'sinon'; // Using sinon for mocking
 
@@ -24,7 +24,7 @@ describe('Contact Message API', () => {
       .end((err, res) => {
           if (err)
               return done(err);
-          console.log(res.body.user.isAdmin)
+          console.log(res.body.user)
           expect(res.body).to.have.property('user');
           done();
       });
@@ -41,7 +41,7 @@ it('should return an a logged in user', function(done) {
   .end((err, res) => {
       if (err)
           return done(err);
-      console.log(res.body.user.isAdmin)
+      console.log(res.body.user)
       expect(res.body).to.have.property('error');
       done();
   });

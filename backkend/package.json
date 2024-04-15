@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
-    "test": " mocha dist/test/*.test.js"
+    "test": " mocha dist/test.js"
   },
   "keywords": [],
   "author": "",

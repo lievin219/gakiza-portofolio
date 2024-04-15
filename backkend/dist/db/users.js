@@ -4,7 +4,6 @@ const userschema = new mongoose.Schema(({
     email: {
         type: String,
         required: true,
-        lowercase: true,
         unique: true,
     },
     password: {
@@ -64,6 +63,7 @@ export const getBlogs = () => blogschemamodel.find();
 export const createUser = (values) => new usermodel(values).save().then((user) => user.toObject());
 export const getuserByid = (id) => commentschemamodel.findById(id);
 export const deleteuserbyid = (id) => commentschemamodel.findOneAndDelete({ _id: id });
+export const getuserbyemail = (email) => usermodel.findOne({ email });
 export const login = async function (email, password) {
     const user = await usermodel.findOne({ email });
     if (user) {
