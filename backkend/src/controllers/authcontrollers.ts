@@ -104,7 +104,7 @@ import { isStrongPassword } from 'validator'
                        return  res.json({user:user._id}).end()
                } 
                catch(error:any){
-                  alert('an error occuring')
+                  
                   if(error.isJoi==true){
                      return res.json({error:`joi displayed this speccific error${error}`})
                   }

@@ -65,7 +65,6 @@ export const login_post = async (req, res) => {
         return res.json({ user: user._id }).end();
     }
     catch (error) {
-        alert('an error occuring');
         if (error.isJoi == true) {
             return res.json({ error: `joi displayed this speccific error${error}` });
         }
