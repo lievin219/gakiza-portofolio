@@ -45,10 +45,11 @@ function closemenu(){
              const datew=await respo.json()
              if(datew.newcomment){
                alert('succesfully submitted')
+               
 
              }
              else if(datew.error){
-                 alert('comment failed')
+                 alert(`comment failed due to ${datew.errow}`)
              }
           }
           catch(err){
