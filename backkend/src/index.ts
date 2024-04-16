@@ -91,13 +91,14 @@ import { require_auth } from './midleware/index.js'
     
     
      app.use(cookie_parser())
-     app.use((req:express.Request, res:express.Response, next) => {
+    
+     app.use((req, res, next) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
       next();
     });
-  
+    
      app.use("/api/docs",swaggerUi.serve,swaggerUi.setup(swaggerdocs))
      const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const staticPath = path.resolve(__dirname, '../../public/assets');
