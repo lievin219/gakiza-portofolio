@@ -75,13 +75,13 @@ const swaggeroptions = {
 const swaggerdocs = swaggerjsdoc(swaggeroptions);
 export const app = express();
 app.use(express.json());
+app.use(cookie_parser());
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
-app.use(cookie_parser());
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerdocs));
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const staticPath = path.resolve(__dirname, '../../public/assets');
