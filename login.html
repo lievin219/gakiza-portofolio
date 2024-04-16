@@ -15,24 +15,27 @@
   <p> <span><input type="checkbox"></span>remember me </p>
   <button type="button" class="signup-btn" id="senndinglog">log in</button>
   <p>  <a href="../index.html">forgot your password ?</a></p>
+  <div id="reporto"></div>
   <script>
      const buttonsending=document.getElementById('senndinglog')
       buttonsending.addEventListener('click',async(e)=>{
        e.preventDefault()
          const emaile=document.getElementById('emaile').value
          const passworde=document.getElementById('passworde').value
+         const reportreport=document.getElementById('reporto')
           try{
-      const resi=await fetch('/login',{
+      const resi=await fetch('http://localhost:3000/login',{
          method:'POST',
          body:JSON.stringify({email:emaile,password:passworde}),
          headers:{ 'Content-Type':'application/json'}  
       })
        const dating=await resi.json()
        if(dating.error){
-           console.log(dating)
+           reportreport.innerText=dating.error
        }
         else if(dating.user){
-         window.location.assign('/main')
+          reportreport.textContent=dating.user     
+         window.location.assign('apping.html')
         }
           }
           catch(error){

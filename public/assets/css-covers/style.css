@@ -5,6 +5,13 @@ body{
     background: #53599A;
     background-position: center;
 }
+.report{
+  width:50%;
+  font-size: 35px;
+  background-color: white;
+  padding:20px
+  
+}
 .sign-up-form{
      background: white;
      width:300px;

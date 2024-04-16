@@ -39,7 +39,7 @@ function closemenu(){
      
       
        try{
-       const dataretrieved=await fetch('/comment',{
+       const dataretrieved=await fetch('http://localhost:3000/comment',{
              method:'POST',
              body:JSON.stringify({email:emaily,message:commenty}),
              headers:{ 'Content-Type':'application/json'}

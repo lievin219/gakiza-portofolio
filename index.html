@@ -23,9 +23,11 @@
   <button type="button" class="login-btn" >Log in with email</button>
  
 <p> do you have an account ? <a href="./public/login.html">sign in here </a></p>
-assets/css-covers/style.css
+      
+<div id="report"></div>
 
         </form>
+        
 
    
 
@@ -44,21 +46,26 @@ assets/css-covers/style.css
        const buttonsend=document.getElementById('signupi')
         const passworderror=document.getElementById('passworderror')
         const emailerror=document.getElementById('emailerror')
+        const reportvalue=document.getElementById('report')
+        reportvalue.textContent=''
           try{
-  const res=await fetch('/signup',{
+  const res=await fetch('http://localhost:3000/signup',{
     method:'POST',
     body:JSON.stringify({email:emailing,password:passwording}),
     headers:{ 'Content-Type':'application/json'}
   })
   const data=await res.json()
+  console.log(data)
+  
+   
    if(data.error){
-    emailerror.textContent=data.error.email
-    passworderror.textContent=data.error.password
+    reportvalue.textContent=data.error
   console.log(data)
   
   }
   else if(data.user){
-     window.location.assign('logini')
+    reportvalue.textContent=data.user
+     window.location.assign('login.html')
   }
   
           }
