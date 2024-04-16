@@ -47,7 +47,7 @@ import { isStrongPassword } from 'validator'
 
       res.cookie("jwt",token,{httpOnly:true,maxAge:maxAge*1000})
         
-    return  res.status(200).json({user:user._id}).end()   
+    return  res.status(200).json({user:`signup succesfully for ${user.email}`}).end()   
     } }
      catch(error:any){
       if(error.isJoi==true){
@@ -101,14 +101,14 @@ import { isStrongPassword } from 'validator'
                         const token=createtoken(user._id)
       res.cookie("jwt",token,{httpOnly:true,maxAge:maxAge*1000})
                              
-                       return  res.json({user:user._id}).end()
+                       return  res.json({user:`login succesfully for ${user.email}`}).end()
                } 
                catch(error:any){
                   
                   if(error.isJoi==true){
-                     return res.json({error:`joi displayed this speccific error${error}`})
+                     return res.json({error:`${error}`})
                   }
-                   return  res.status(400).json({error:`an error occured is ${error}`})
+                   return  res.status(400).json({error:`${error}`})
                 }
      }  
 

@@ -1,7 +1,7 @@
 import Joi from '@hapi/joi';
 export const authschema = Joi.object({
     email: Joi.string().email().required(),
-    password: Joi.string().min(6).pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$')).required()
+    password: Joi.string().min(6)
 });
 export const contact_validate = Joi.object({
     name: Joi.string().required(),
