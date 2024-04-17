@@ -2,7 +2,7 @@
  import express from 'express'
  
    export const require_auth=(req:express.Request,res:express.Response,next:express.NextFunction)=>{
-       const token= req.cookies.jwt
+       const token=  req.headers.authorization?.split(' ')[1];
       
        // check jsonwebtoken exist or not 
         if(token){

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 export const require_auth = (req, res, next) => {
-    const token = req.cookies.jwt;
+    const token = req.headers.authorization?.split(' ')[1];
     // check jsonwebtoken exist or not 
     if (token) {
         jwt.verify(token, 'gakiza code secret', (err, decodedToken) => {
