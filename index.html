@@ -22,7 +22,7 @@
   <p class="or">OR</p>
   <button type="button" class="login-btn" >Log in with email</button>
  
-<p> do you have an account ? <a href="./public/login.html">sign in here </a></p>
+<p> do you have an account ? <a href="./login.html">sign in here </a></p>
       
 <div id="report"></div>
 
@@ -48,15 +48,21 @@
         const emailerror=document.getElementById('emailerror')
         const reportvalue=document.getElementById('report')
         reportvalue.textContent=''
+       
           try{
-  const res=await fetch('http://localhost:3000/signup',{
+            
+  const res=await fetch('https://gakiza-portofolio.onrender.com/signup',{
     method:'POST',
     body:JSON.stringify({email:emailing,password:passwording}),
-    headers:{ 'Content-Type':'application/json'}
+    headers:{ 'Content-Type':'application/json' }
+   
   })
   const data=await res.json()
-  console.log(data)
   
+  console.log(data)
+   localStorage.setItem('tokene',data.token)
+   const maintoken=localStorage.getItem('tokene')
+   console.log(maintoken)
    
    if(data.error){
     reportvalue.textContent=data.error
@@ -65,15 +71,17 @@
   }
   else if(data.user){
     reportvalue.textContent=data.user
+    
+    
      window.location.assign('login.html')
   }
   
-          }
-         
+}
+        
           catch(error){
       console.log(error)
-          }
-        })
+          }}
+        )
      
     </script>
 </body>

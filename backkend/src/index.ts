@@ -88,13 +88,11 @@ import { require_auth } from './midleware/index.js'
   
     
     app.use(express.json())
-    app.use(cors())
-   app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Or to allow requests from any origin:
-    // res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-  });
+    app.use(cors({
+         origin:'https://lievin219.github.io',
+      credentials:true
+    }))
+  
     
     
      app.use(cookie_parser())
@@ -103,7 +101,7 @@ import { require_auth } from './midleware/index.js'
      
     
      app.use("/api/docs",swaggerUi.serve,swaggerUi.setup(swaggerdocs))
-     const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    /* const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const staticPath = path.resolve(__dirname, '../../public/assets');
      app.use('/public/assets', express.static(staticPath));
    
@@ -124,7 +122,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
    app.get('/commenting',(req:express.Request,res:express.Response)=>{
     const indexpath=path.resolve(__dirname,'../../project.html')
     res.sendFile(indexpath)
-})
+   })*/
 
   
    

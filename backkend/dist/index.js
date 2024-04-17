@@ -3,8 +3,6 @@ import mongoose from 'mongoose';
 import cookie_parser from 'cookie-parser';
 import cors from 'cors';
 import { isAdmin } from './midleware/index.js';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import swaggerUi from 'swagger-ui-express';
 import swaggerjsdoc from 'swagger-jsdoc';
 import { getallblogs } from './controllers/authcontrollers.js';
@@ -76,34 +74,34 @@ const swaggeroptions = {
 const swaggerdocs = swaggerjsdoc(swaggeroptions);
 export const app = express();
 app.use(express.json());
-app.use(cors());
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Or to allow requests from any origin:
-    // res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-});
+app.use(cors({
+    origin: 'https://lievin219.github.io',
+    credentials: true
+}));
 app.use(cookie_parser());
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerdocs));
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+/* const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const staticPath = path.resolve(__dirname, '../../public/assets');
-app.use('/public/assets', express.static(staticPath));
-app.get('/logini', (req, res) => {
-    const indexpath = path.resolve(__dirname, '../../login.html');
-    res.sendFile(indexpath);
-});
-app.get('/main', (req, res) => {
-    const indexpath = path.resolve(__dirname, '../../apping.html');
-    res.sendFile(indexpath);
-});
-app.get('/signupi', (req, res) => {
-    const indexpath = path.resolve(__dirname, '../../index.html');
-    res.sendFile(indexpath);
-});
-app.get('/commenting', (req, res) => {
-    const indexpath = path.resolve(__dirname, '../../project.html');
-    res.sendFile(indexpath);
-});
+ app.use('/public/assets', express.static(staticPath));
+
+
+
+  app.get('/logini',(req:express.Request,res:express.Response)=>{
+    const indexpath=path.resolve(__dirname,'../../login.html')
+    res.sendFile(indexpath)
+   })
+   app.get('/main',(req:express.Request,res:express.Response)=>{
+    const indexpath=path.resolve(__dirname,'../../apping.html')
+    res.sendFile(indexpath)
+   })
+app.get('/signupi',(req:express.Request,res:express.Response)=>{
+    const indexpath=path.resolve(__dirname,'../../index.html')
+    res.sendFile(indexpath)
+})
+app.get('/commenting',(req:express.Request,res:express.Response)=>{
+const indexpath=path.resolve(__dirname,'../../project.html')
+res.sendFile(indexpath)
+})*/
 const port = 3000;
 const mongodb_url = "mongodb+srv://gakizalievin219:soFbc9DE42Yv7MKf@cluster0.csy64ya.mongodb.net/";
 mongoose.connect(mongodb_url).then(() => {
