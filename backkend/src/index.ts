@@ -20,13 +20,10 @@ app.use(express.json())
     
      app.use(cookie_parser())
 
-app.use((req:express.Request, res:express.Response, next:express.NextFunction) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  next();
-});
+app.use(cors({
+  origin:'https://lievin219.github.io/frontend',
+  credentials:true
+}));
   
   const swaggeroptions={
     definition: {

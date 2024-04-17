@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cookie_parser from 'cookie-parser';
+import cors from 'cors';
 import { isAdmin } from './midleware/index.js';
 import swaggerUi from 'swagger-ui-express';
 import swaggerjsdoc from 'swagger-jsdoc';
@@ -12,13 +13,10 @@ import { require_auth } from './midleware/index.js';
 export const app = express();
 app.use(express.json());
 app.use(cookie_parser());
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    next();
-});
+app.use(cors({
+    origin: 'https://lievin219.github.io/frontend',
+    credentials: true
+}));
 const swaggeroptions = {
     definition: {
         openapi: "3.0.0",
