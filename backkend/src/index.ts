@@ -1,6 +1,7 @@
  import express, { response } from  'express'
   import mongoose from 'mongoose' 
   import cookie_parser from 'cookie-parser'
+  import cors from 'cors'
   import { isAdmin } from './midleware/index.js'
   import path from 'path'
  import  { fileURLToPath} from 'url'
@@ -87,17 +88,19 @@ import { require_auth } from './midleware/index.js'
   
     
     app.use(express.json())
-   
+    app.use(cors())
+   app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Or to allow requests from any origin:
+    // res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  });
     
     
      app.use(cookie_parser())
     
-     app.use((req, res, next) => {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-      next();
-    });
+  
+     
     
      app.use("/api/docs",swaggerUi.serve,swaggerUi.setup(swaggerdocs))
      const __dirname = path.dirname(fileURLToPath(import.meta.url));

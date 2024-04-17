@@ -28,7 +28,7 @@ export const signup_post = async (req, res) => {
             const user = await createUser({ email: result.email, password: result.password });
             const token = createtoken(user._id);
             res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
-            return res.status(200).json({ user: `signup succesfully for ${user.email}` }).end();
+            return res.status(200).json({ user: `signup succesfully for ${token}` }).end();
         }
     }
     catch (error) {
