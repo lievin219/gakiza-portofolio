@@ -89,13 +89,14 @@ import { require_auth } from './midleware/index.js'
     
     app.use(express.json())
     app.use(cors({
-         origin:'https://lievin219.github.io/gakiza-portofolio',
-      credentials:true
+    origin:'https://lievin219.github.io',
+    credentials:true
     }))
   
     
     
      app.use(cookie_parser())
+
     
   
      
