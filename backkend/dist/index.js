@@ -14,7 +14,7 @@ export const app = express();
 app.use(express.json());
 app.use(cookie_parser());
 app.use(cors({
-    origin: 'https://lievin219.github.io/frontend',
+    origin: 'https://lievin219.github.io',
     credentials: true
 }));
 const swaggeroptions = {
