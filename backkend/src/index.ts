@@ -13,8 +13,20 @@
      import {comment_post, contact_get, log_out, login_post, signup_get,}from './controllers/authcontrollers.js'  
       import {signup_post} from './controllers/authcontrollers.js'
 import { require_auth } from './midleware/index.js'
-      
+export  const app=express()
+app.use(express.json())
+ 
+    
+    
+     app.use(cookie_parser())
 
+app.use((req:express.Request, res:express.Response, next:express.NextFunction) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
   
   const swaggeroptions={
     definition: {
@@ -84,18 +96,10 @@ import { require_auth } from './midleware/index.js'
 
 
    
-   export  const app=express()
   
-    
-    app.use(express.json())
-    app.use(cors({
-    credentials:true
-    }))
   
     
     
-     app.use(cookie_parser())
-
     
   
      
@@ -187,7 +191,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
 
             
 
-               app.post("/signup",signup_post)
+               app.post("/signup",signup_post)    
                /**
  * @swagger
  * /login:

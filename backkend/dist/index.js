@@ -1,7 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cookie_parser from 'cookie-parser';
-import cors from 'cors';
 import { isAdmin } from './midleware/index.js';
 import swaggerUi from 'swagger-ui-express';
 import swaggerjsdoc from 'swagger-jsdoc';
@@ -10,6 +9,16 @@ import { blog_post, deletecomment, update_comment } from './controllers/authcont
 import { comment_post, contact_get, log_out, login_post, } from './controllers/authcontrollers.js';
 import { signup_post } from './controllers/authcontrollers.js';
 import { require_auth } from './midleware/index.js';
+export const app = express();
+app.use(express.json());
+app.use(cookie_parser());
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 const swaggeroptions = {
     definition: {
         openapi: "3.0.0",
@@ -72,12 +81,6 @@ const swaggeroptions = {
     apis: ["./dist/index.js"]
 };
 const swaggerdocs = swaggerjsdoc(swaggeroptions);
-export const app = express();
-app.use(express.json());
-app.use(cors({
-    credentials: true
-}));
-app.use(cookie_parser());
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerdocs));
 /* const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const staticPath = path.resolve(__dirname, '../../public/assets');
