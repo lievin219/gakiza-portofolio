@@ -1,4 +1,4 @@
-import { v2 as cloudinary } from 'cloudinary';
+import cloudinary from '../midleware/cloudinary.js';
 import upload from '../routes/multer.js';
 import { getBlogs, getuserbyemail } from '../db/users.js';
 import jwt from 'jsonwebtoken';

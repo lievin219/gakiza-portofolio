@@ -2,7 +2,7 @@
   import  Path  from 'path'
   import app  from '../index'
   import cookie from  'cookie-parser'
-  import {v2 as cloudinary }from 'cloudinary'
+  import cloudinary from '../midleware/cloudinary.js'
  import upload from '../routes/multer.js'
 
  
