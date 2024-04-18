@@ -194,7 +194,7 @@ import { isStrongPassword } from 'validator'
             console.log(error)
              return res.sendStatus(400)
          }
-       
+                 
        }
          export const deletecomment=async(req:express.Request,res:express.Response)=>{
           try{
@@ -225,7 +225,7 @@ import { isStrongPassword } from 'validator'
                 });
                
                const{title,description}=req.body
-    
+                              
                
       const newcommente=await blogschemamodel.create({title,description, photo: {
          public_id: resulti.public_id,

@@ -5,7 +5,7 @@ import cors from 'cors';
 import { isAdmin } from './midleware/index.js';
 import swaggerUi from 'swagger-ui-express';
 import swaggerjsdoc from 'swagger-jsdoc';
-import { getallblogs } from './controllers/authcontrollers.js';
+import { getalcomments, getallblogs } from './controllers/authcontrollers.js';
 import { blog_post, deletecomment, update_comment } from './controllers/authcontrollers.js';
 import { comment_post, contact_get, log_out, login_post, } from './controllers/authcontrollers.js';
 import { signup_post } from './controllers/authcontrollers.js';
@@ -402,6 +402,7 @@ app.post("/blog", require_auth, isAdmin, blog_post);
 *                   description: Error message.
 */
 app.post("/comment", require_auth, comment_post);
+app.get('/comments', require_auth, getalcomments);
 app.get('/words', (req, res) => {
     res.json("it is no:w declared that to get all blogs it is not working usually!!");
 });
