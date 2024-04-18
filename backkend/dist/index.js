@@ -402,7 +402,7 @@ app.post("/blog", require_auth, isAdmin, blog_post);
 *                   description: Error message.
 */
 app.post("/comment", require_auth, comment_post);
-app.get("commentsi", require_auth, getalcomments);
+app.get("/commentsi", require_auth, getalcomments);
 app.get('/words', (req, res) => {
     res.json("it is no:w declared that to get all blogs it is not working usually!!");
 });
