@@ -402,7 +402,7 @@ app.post("/blog", require_auth, isAdmin, blog_post);
 *                   description: Error message.
 */
 app.post("/comment", require_auth, comment_post);
-app.get("/commentsi", require_auth, getalcomments);
+app.get("/commentsi", getalcomments);
 app.get('/words', (req, res) => {
     res.json("it is no:w declared that to get all blogs it is not working usually!!");
 });
@@ -492,6 +492,6 @@ app.delete("/delete/:id", require_auth, deletecomment);
 *                   type: string
 *                   description: Error message.
 */
-app.get("/article/getall", require_auth, getallblogs);
+app.get("/article/getall", getallblogs);
 export default app;
 //# sourceMappingURL=index.js.map
