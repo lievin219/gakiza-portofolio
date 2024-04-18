@@ -68,6 +68,7 @@ export const usermodel = mongoose.model("users", userschema);
 export const contactschemamodel = mongoose.model("contacts", contactschema);
 export const commentschemamodel = mongoose.model("comments", commentschema);
 export const getBlogs = () => blogschemamodel.find();
+export const getallcomments = () => commentschemamodel.find();
 export const createUser = (values) => new usermodel(values).save().then((user) => user.toObject());
 export const getuserByid = (id) => commentschemamodel.findById(id);
 export const deleteuserbyid = (id) => commentschemamodel.findOneAndDelete({ _id: id });

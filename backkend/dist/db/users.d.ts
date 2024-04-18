@@ -185,6 +185,26 @@ export declare const getBlogs: () => mongoose.Query<(mongoose.Document<unknown, 
         secure_url?: string | null | undefined;
     } | null | undefined;
 }, "find">;
+export declare const getallcomments: () => mongoose.Query<(mongoose.Document<unknown, {}, {
+    email: string;
+    message: string;
+}> & {
+    email: string;
+    message: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+})[], mongoose.Document<unknown, {}, {
+    email: string;
+    message: string;
+}> & {
+    email: string;
+    message: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+}, {}, {
+    email: string;
+    message: string;
+}, "find">;
 export declare const createUser: (values: Record<string, any>) => Promise<{
     email: string;
     password: string;

@@ -1,6 +1,6 @@
 import cloudinary from '../midleware/cloudinary.js';
 import upload from '../routes/multer.js';
-import { getBlogs, getuserbyemail } from '../db/users.js';
+import { getBlogs, getuserbyemail, getallcomments } from '../db/users.js';
 import jwt from 'jsonwebtoken';
 import { blogschemamodel, deleteuserbyid } from '../db/users.js';
 import { commentschemamodel, getuserByid } from '../db/users.js';
@@ -118,6 +118,16 @@ export const update_comment = async (req, res) => {
     }
     catch (error) {
         res.json({ error: `an error occured is ${error}  ` });
+    }
+};
+export const getalcomments = async (req, res) => {
+    try {
+        const newcommenti = await getallcomments();
+        return res.status(200).json(newcommenti);
+    }
+    catch (error) {
+        console.log(error);
+        return res.sendStatus(400);
     }
 };
 export const deletecomment = async (req, res) => {

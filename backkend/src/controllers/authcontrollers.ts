@@ -6,13 +6,12 @@
  import upload from '../routes/multer.js'
 
  
-  import {getBlogs, getuserbyemail} from '../db/users.js'
+  import {getBlogs, getuserbyemail,getallcomments} from '../db/users.js'
   import {blog_validate}  from '../midleware/validate_schema.js'
    import jwt from 'jsonwebtoken'
 import {blogschemamodel, deleteuserbyid} from '../db/users.js'
    import { commentschemamodel, getuserByid, usermodel } from '../db/users.js'
     import { authschema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js'
-   
    import { contactschemamodel, createUser, login } from '../db/users.js'
 import { isStrongPassword } from 'validator'
     
@@ -183,6 +182,20 @@ import { isStrongPassword } from 'validator'
                     res.json({error:`an error occured is ${error}  `})
                   }
          }  
+         export const getalcomments=async(req:express.Request,res:express.Response)=>{
+                 
+            try{
+               const newcommenti= await getallcomments()
+                return res.status(200).json(newcommenti) 
+       
+               
+          }
+         catch(error){
+            console.log(error)
+             return res.sendStatus(400)
+         }
+       
+       }
          export const deletecomment=async(req:express.Request,res:express.Response)=>{
           try{
        const {id}=req.params;
