@@ -409,6 +409,7 @@ app.get('/words', (req, res) => {
 /**
 * @swagger
 * /delete:id:
+*
 *   delete:
 *     summary: include a comment
 *     description: a user can comment

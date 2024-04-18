@@ -451,6 +451,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  /**
  * @swagger
  * /delete:id:
+ * 
  *   delete:
  *     summary: include a comment
  *     description: a user can comment
