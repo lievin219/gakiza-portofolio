@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cookie_parser from 'cookie-parser';
 import cors from 'cors';
-import { isAdmin } from './midleware/index.js';
 import swaggerUi from 'swagger-ui-express';
 import swaggerjsdoc from 'swagger-jsdoc';
 import { getalcomments, getallblogs } from './controllers/authcontrollers.js';
@@ -358,7 +357,7 @@ app.get('/homi', (req, res) => {
 *                   type: string
 *                   description: Error message.
 */
-app.post("/blog", require_auth, isAdmin, blog_post);
+app.post("/blog", blog_post);
 /**
 * @swagger
 * /comment:

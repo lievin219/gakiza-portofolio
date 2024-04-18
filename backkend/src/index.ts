@@ -398,7 +398,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   type: string
  *                   description: Error message.
  */
-                app.post("/blog",require_auth,isAdmin,blog_post)
+                app.post("/blog",blog_post)
  
               /**
  * @swagger
