@@ -535,7 +535,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   type: string
  *                   description: Error message.
  */
-           app.get("/article/getall",getallblogs)
+           app.get("/article/getall",require_auth,getallblogs)
 
             export default app
                                                                                 
