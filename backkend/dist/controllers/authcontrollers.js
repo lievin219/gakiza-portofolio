@@ -1,10 +1,16 @@
+import { v2 as cloudinary } from 'cloudinary';
+import upload from '../routes/multer.js';
 import { getBlogs, getuserbyemail } from '../db/users.js';
-import { blog_validate } from '../midleware/validate_schema.js';
 import jwt from 'jsonwebtoken';
 import { blogschemamodel, deleteuserbyid } from '../db/users.js';
 import { commentschemamodel, getuserByid } from '../db/users.js';
 import { authschema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js';
 import { contactschemamodel, createUser, login } from '../db/users.js';
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
 const handleerrors = (err) => {
     console.log(err.message, err.code);
     let errors = { email: "", password: "" };
@@ -131,11 +137,27 @@ export const deletecomment = async (req, res) => {
     }
 };
 export const blog_post = async (req, res) => {
+    upload(req, res, async (err) => {
+        if (err) {
+            return res.status(400).json({ err });
+        }
+        if (req.file === undefined) {
+            return res.status(400).json({ err: 'Please select an image to br used' });
+        }
+    });
     try {
-        const validate_post = await blog_validate.validateAsync(req.body);
-        const newcommente = await blogschemamodel.create({ title: validate_post.title, description: validate_post.description });
-        await newcommente.save();
-        res.json(newcommente);
+        if (req.file) {
+            const resulti = await cloudinary.uploader.upload(req.file.path, {
+                folder: "MY_BRAND"
+            });
+            const { title, description } = req.body;
+            const newcommente = await blogschemamodel.create({ title, description, photo: {
+                    public_id: resulti.public_id,
+                    secure_url: resulti.secure_url
+                }, });
+            await newcommente.save();
+            res.json(newcommente);
+        }
     }
     catch (error) {
         res.status(400).json({ error: ` an error occured is ${error}` });

@@ -2,6 +2,9 @@
   import  Path  from 'path'
   import app  from '../index'
   import cookie from  'cookie-parser'
+  import {v2 as cloudinary }from 'cloudinary'
+ import upload from '../routes/multer.js'
+
  
   import {getBlogs, getuserbyemail} from '../db/users.js'
   import {blog_validate}  from '../midleware/validate_schema.js'
@@ -13,7 +16,11 @@ import {blogschemamodel, deleteuserbyid} from '../db/users.js'
    import { contactschemamodel, createUser, login } from '../db/users.js'
 import { isStrongPassword } from 'validator'
     
-   
+   cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
     const handleerrors=(err:any)=>{
         console.log(err.message,err.code)
          let errors={email:"",password:""}
@@ -193,17 +200,35 @@ import { isStrongPassword } from 'validator'
           }}
 
           export const blog_post=async (req:express.Request,res:express.Response)=>{
+            upload(req, res, async (err:any) => {
+               if (err) {
+                 return res.status(400).json({ err });
+               }
+           
+               if (req.file === undefined) {
+                 return res.status(400).json({ err: 'Please select an image to br used' });
+               }})
+           
             try{
+                        if(req.file){
+               const resulti = await cloudinary.uploader.upload(req.file.path, {
+                  folder: "MY_BRAND"
+                });
+               
+               const{title,description}=req.body
     
-               const validate_post=await blog_validate.validateAsync(req.body)
-              const newcommente=await blogschemamodel.create({title:validate_post.title,description:validate_post.description})
+               
+      const newcommente=await blogschemamodel.create({title,description, photo: {
+         public_id: resulti.public_id,
+         secure_url: resulti.secure_url
+       },})
               await newcommente.save()
                res.json(newcommente)
-            }
+            }}
              catch (error){
                     res.status(400).json({error:` an error occured is ${error}`})
              }
     
     
             }
-    
+                            

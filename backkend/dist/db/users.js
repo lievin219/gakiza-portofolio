@@ -44,6 +44,14 @@ const commentschema = new mongoose.Schema(({
     }
 }));
 const blogschema = new mongoose.Schema(({
+    photo: {
+        public_id: {
+            type: String
+        },
+        secure_url: {
+            type: String
+        }
+    },
     title: {
         type: String,
         required: true,
