@@ -6,11 +6,6 @@ import { blogschemamodel, deleteuserbyid } from '../db/users.js';
 import { commentschemamodel, getuserByid } from '../db/users.js';
 import { authschema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js';
 import { contactschemamodel, createUser, login } from '../db/users.js';
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
-});
 const handleerrors = (err) => {
     console.log(err.message, err.code);
     let errors = { email: "", password: "" };
