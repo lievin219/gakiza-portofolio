@@ -148,7 +148,7 @@ import { isStrongPassword } from 'validator'
            res.status(200).json(newcommenti)
         }
          catch (error){
-                res.status(400).json({error:` an error occured is ${error}`})
+                res.status(404).json({error:` an error occured is ${error}`})
          }
 
 

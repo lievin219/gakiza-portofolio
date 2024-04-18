@@ -97,7 +97,7 @@ export const comment_post = async (req, res) => {
         res.status(200).json(newcommenti);
     }
     catch (error) {
-        res.status(400).json({ error: ` an error occured is ${error}` });
+        res.status(404).json({ error: ` an error occured is ${error}` });
     }
 };
 export const update_comment = async (req, res) => {
