@@ -400,8 +400,8 @@ app.post("/blog", blog_post);
 *                   type: string
 *                   description: Error message.
 */
-app.post("/comment", require_auth, comment_post);
-app.get("/commentsi", require_auth, getalcomments);
+app.post("/comment", comment_post);
+app.get("/commentsi", getalcomments);
 app.get('/words', (req, res) => {
     res.json("it is no:w declared that to get all blogs it is not working usually!!");
 });

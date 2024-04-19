@@ -1,9 +1,8 @@
 import jwt from 'jsonwebtoken';
 export const require_auth = (req, res, next) => {
-    const token = req.headers.authorization?.split(' ')[1];
-    // check jsonwebtoken exist or not 
-    if (token) {
-        jwt.verify(token, 'gakiza code secret', (err, decodedToken) => {
+    const tokene = req.headers.authorization?.split(' ')[1];
+    if (tokene) {
+        jwt.verify(tokene, 'gakiza code secret', (err, decodedToken) => {
             if (err) {
                 res.status(400).json({ error: "no webtoken found!" });
             }
