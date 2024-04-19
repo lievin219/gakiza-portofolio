@@ -61,7 +61,6 @@ export const login_post = async (req, res) => {
         const result = await loginSchema.validateAsync(req.body, { abortEarly: false });
         const user = await login(result.email, result.password);
         const token = createtoken(user._id);
-        res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
         return res.json({ user: `login succesfully for ${user.email}`, token }).end();
     }
     catch (error) {

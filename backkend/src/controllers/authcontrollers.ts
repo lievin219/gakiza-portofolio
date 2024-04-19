@@ -102,7 +102,7 @@ import { isStrongPassword } from 'validator'
               
                         const user=await login(result.email,result.password)
                         const token=createtoken(user._id)
-      res.cookie("jwt",token,{httpOnly:true,maxAge:maxAge*1000})
+     
                              
                        return  res.json({user:`login succesfully for ${user.email}`,token}).end()
                } 
