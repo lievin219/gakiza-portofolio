@@ -443,7 +443,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   description: Error message.
  */
                 app.post("/comment",require_auth,comment_post)
-                app.get("/commentsi",getalcomments)
+                app.get("/commentsi",require_auth,getalcomments)
                 app.get('/words',(req:express.Request,res:express.Response)=>{
                    res.json("it is no:w declared that to get all blogs it is not working usually!!")
                 })
