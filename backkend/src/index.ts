@@ -398,7 +398,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   type: string
  *                   description: Error message.
  */
-                app.post("/blog",blog_post)
+                app.post("/blog",require_auth,blog_post)
  
               /**
  * @swagger
@@ -443,7 +443,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   description: Error message.
  */
                 app.post("/comment",comment_post)
-                app.get("/commentsi",getalcomments)
+                app.get("/commentsi",require_auth,getalcomments)
                 app.get('/words',(req:express.Request,res:express.Response)=>{
                    res.json("it is no:w declared that to get all blogs it is not working usually!!")
                 })
@@ -537,7 +537,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   type: string
  *                   description: Error message.
  */
-           app.get("/article/getall",getallblogs)
+           app.get("/article/getall",require_auth,getallblogs)
 
             export default app
                                                                                 
