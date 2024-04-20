@@ -50,7 +50,7 @@ import { isStrongPassword } from 'validator'
       res.cookie("jwt",token,{httpOnly:true,maxAge:maxAge*1000})
  
         
-    return  res.status(200).json({user:`signup succesfully for ${token}`}).end()   
+    return  res.status(200).json({user:`signup succesfully for${user.email} `,token}).end()   
     } }
      catch(error:any){
       if(error.isJoi==true){
