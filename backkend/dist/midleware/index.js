@@ -4,7 +4,7 @@ export const require_auth = (req, res, next) => {
     if (tokene) {
         jwt.verify(tokene, 'gakiza code secret', (err, decodedToken) => {
             if (err) {
-                res.status(400).json({ error: "no webtoken found!" });
+                res.status(400).json({ error: err, tokene });
             }
             else {
                 console.log(decodedToken);
