@@ -37,8 +37,8 @@ workflows:
   version: 2
   build-test-and-deploy:
     jobs:
-      - testing
       - building
+      - testing
       - deploying:
           requires:
             - building
