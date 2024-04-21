@@ -192,7 +192,7 @@ import { isStrongPassword } from 'validator'
           }
          catch(error){
             console.log(error)
-             return res.sendStatus(400)
+             return res.status(400).json(error)
          }
                  
        }

@@ -126,7 +126,7 @@ export const getalcomments = async (req, res) => {
     }
     catch (error) {
         console.log(error);
-        return res.sendStatus(400);
+        return res.status(400).json(error);
     }
 };
 export const deletecomment = async (req, res) => {
