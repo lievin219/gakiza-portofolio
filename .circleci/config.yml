@@ -19,7 +19,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: cd backkend && npm install
       - run:
           name: Test API
           command: cd backkend && npm run test
