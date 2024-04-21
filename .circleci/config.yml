@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  building:
     docker:
       - image: cimg/node:21.7.1
     steps:
@@ -12,19 +12,19 @@ jobs:
           name: Build
           command: npm run build
 
-  test:
+  testing:
     docker:
       - image: cimg/node:21.7.1
     steps:
       - checkout
       - run:
-          name: Insall dependencies
+          name: Install dependencies
           command: npm install
       - run:
           name: Test API
           command: npm run test
 
-  deploy:
+  deploying:
     docker:
       - image: cimg/node:21.7.1
     steps:
@@ -32,14 +32,14 @@ jobs:
       - run:
           name: Deploy to Render
           command: |
-            curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${RENDER_API_KEY}" -d '{"branch":"main"}' https://api.render.com/deploy/srv-coh8lv779t8c73fv39e0?key=${RENDER_DEPLOY_HOOK}
+
 workflows:
   version: 2
   build-test-and-deploy:
     jobs:
-      - test
-      - build
-      - deploy:
+      - testing
+      - building
+      - deploying:
           requires:
             - build
           filters:
