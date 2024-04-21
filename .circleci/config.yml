@@ -45,3 +45,5 @@ workflows:
  run-tests:
   jobs:
    - build_test
+   - test_app
+   - deploy_app
