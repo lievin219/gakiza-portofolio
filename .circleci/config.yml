@@ -7,10 +7,10 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm install
+          command: cd backkend && npm install
       - run:
           name: Build
-          command: npm run build
+          command: cd backkend && npm run build
 
   testing:
     docker:
@@ -22,7 +22,7 @@ jobs:
           command: npm install
       - run:
           name: Test API
-          command: npm run test
+          command: cd backkend && npm run test
 
   deploying:
     docker:
