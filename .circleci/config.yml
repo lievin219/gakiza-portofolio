@@ -1,6 +1,6 @@
 version:2.1
 jobs:
- build_test:
+ build_app:
   docker:
     - image: circleci/node:12
   steps:
@@ -8,14 +8,38 @@ jobs:
    -run:
      name: install npm dependencies
      command: |
-      npm install --save
+      npm install 
   -run:
-    name: run unit test
+    name: run build
     command: |
-      ./node_modules/mocha   dist/test
-  -store_test_result: 
-    path: test-result
+      npm run build
+  
 
+
+ test_app:
+  docker:
+    - image: circleci/node:12
+  steps:
+   -checkout
+   -run:
+     name: install npm dependencies
+     command: |
+      npm install 
+  -run:
+    name: run test
+    command: |
+      npm run test
+ 
+ deploy_app:
+  docker:
+    - image: circleci/node:12
+  steps:
+   -checkout
+   -run:
+     name: deploy to render
+     command: |
+      
+  
      
 workflows:
  run-tests:
