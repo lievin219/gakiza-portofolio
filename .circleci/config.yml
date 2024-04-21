@@ -1,4 +1,4 @@
-version:2.1
+version: 2.1
 jobs:
  build_app:
   docker:
@@ -38,10 +38,12 @@ jobs:
    -run:
      name: deploy to render
      command: |
+       sending to render values api key{}
       
   
      
 workflows:
+ version: 2
  run-tests:
   jobs:
    - build_test
