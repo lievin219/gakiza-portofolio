@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import { usermodel } from '../db/users';
 ;
 export const require_auth = (req, res, next) => {
     const tokene = req.headers.authorization?.split(' ')[1];
@@ -19,28 +18,31 @@ export const require_auth = (req, res, next) => {
     }
 };
 export const isAdmin_auth = (req, res, next) => {
-    const tokene = req.headers.authorization?.split(' ')[1];
-    if (tokene) {
-        jwt.verify(tokene, 'gakiza code secret', async (err, decodedToken) => {
+    // Extract token from the Authorization header
+    const token = req.headers.authorization?.split(' ')[1];
+    if (token) {
+        // Verify the token
+        jwt.verify(token, 'gakiza code secret', (err, decodedToken) => {
             if (err) {
-                res.status(400).json({ error: err, tokene });
+                // If token verification fails, send an error response
+                res.status(401).json({ error: 'Unauthorized' });
             }
-            try {
-                const useri = await usermodel.findById(decodedToken.id);
-                if (useri && useri.isAdmin) {
+            else {
+                // If token is valid, check if the user is an admin
+                if (decodedToken && decodedToken.isAdmin) {
+                    // If user is admin, proceed to the next middleware
                     next();
                 }
                 else {
-                    res.status(404).json({ error: `the admin only can access this` });
+                    // If user is not an admin, send an error response
+                    res.status(403).json({ error: 'Forbidden' });
                 }
-            }
-            catch (err) {
-                console.log(err);
             }
         });
     }
     else {
-        res.json({ error: "it seems you are not signed in!" });
+        // If no token is provided, send an error response
+        res.status(401).json({ error: 'Unauthorized' });
     }
 };
 //# sourceMappingURL=index.js.map
