@@ -219,12 +219,12 @@ import { isStrongPassword } from 'validator'
             try{
                         
                
-               const{title,description}=req.body
-                   const image=req.file?.filename           
+               const{title,description,image}=req.body
+                            
                
       const newcommente=await blogschemamodel.create({title,description, image})
               await newcommente.save()
-               res.json(newcommente)
+               res.status(200).json(newcommente)
             }
              catch (error){
                     res.status(400).json({error:` an error occured is ${error}`})
