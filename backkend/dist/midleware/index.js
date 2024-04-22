@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { usermodel } from '../db/users';
+import { usermodel } from '../db/users.js';
 ;
 export const require_auth = (req, res, next) => {
     const tokene = req.headers.authorization?.split(' ')[1];

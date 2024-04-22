@@ -1,8 +1,8 @@
  import jwt from 'jsonwebtoken' 
  import express from 'express'
-import { usermodel } from '../db/users';
+import { usermodel } from '../db/users.js';
 import { any, string } from 'joi';
-import { getuserbyemail } from '../db/users';
+import { getuserbyemail } from '../db/users.js';
 ;
  
    export const require_auth=(req:express.Request,res:express.Response,next:express.NextFunction)=>{
