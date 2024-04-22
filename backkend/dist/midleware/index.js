@@ -18,27 +18,29 @@ export const require_auth = (req, res, next) => {
         res.json({ error: "it seems you are not signed in!" });
     }
 };
-export const admin_auth = (req, res, next) => {
-    const token = req.headers.authorization?.split(' ')[1];
-    if (!token) {
-        return res.redirect("back");
-    }
-    jwt.verify(token, 'gakiza code secret', async (err, decodedInfo) => {
-        if (err) {
-            console.log(err.message);
-            return res.status(500).send("Internal Server Error");
-        }
-        try {
-            const user = await usermodel.findById(decodedInfo.id);
-            if (!user || !user.isAdmin) {
-                return res.redirect("back");
+export const isAdmin_auth = (req, res, next) => {
+    const tokene = req.headers.authorization?.split(' ')[1];
+    if (tokene) {
+        jwt.verify(tokene, 'gakiza code secret', async (err, decodedToken) => {
+            if (err) {
+                res.status(400).json({ error: err, tokene });
             }
-            next();
-        }
-        catch (error) {
-            console.error("Error retrieving user:", error);
-            return res.status(500).send("Internal Server Error");
-        }
-    });
+            try {
+                const useri = await usermodel.findById(decodedToken.id);
+                if (useri && useri.isAdmin) {
+                    next();
+                }
+                else {
+                    res.status(404).json({ error: `the admin only can access this` });
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        });
+    }
+    else {
+        res.json({ error: "it seems you are not signed in!" });
+    }
 };
 //# sourceMappingURL=index.js.map
