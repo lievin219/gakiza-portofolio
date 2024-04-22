@@ -26,47 +26,29 @@ import mongoose from 'mongoose';
 export declare const blogschemamodel: mongoose.Model<{
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 }> & {
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 }>> & mongoose.FlatRecord<{
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>>;
@@ -154,42 +136,27 @@ export declare const commentschemamodel: mongoose.Model<{
 export declare const getBlogs: () => mongoose.Query<(mongoose.Document<unknown, {}, {
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 }> & {
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 })[], mongoose.Document<unknown, {}, {
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 }> & {
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, {}, {
     title: string;
     description: string;
-    photo?: {
-        public_id?: string | null | undefined;
-        secure_url?: string | null | undefined;
-    } | null | undefined;
+    image?: string | null | undefined;
 }, "find">;
 export declare const getallcomments: () => mongoose.Query<(mongoose.Document<unknown, {}, {
     email: string;

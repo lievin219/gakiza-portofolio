@@ -1,5 +1,3 @@
-import cloudinary from '../midleware/cloudinary.js';
-import upload from '../routes/multer.js';
 import { getBlogs, getuserbyemail, getallcomments } from '../db/users.js';
 import jwt from 'jsonwebtoken';
 import { blogschemamodel, deleteuserbyid } from '../db/users.js';
@@ -34,7 +32,7 @@ export const signup_post = async (req, res) => {
     }
     catch (error) {
         if (error.isJoi == true) {
-            return res.status(400).json({ error: `joi displayed an error${error}` });
+            return res.status(400).json({ error: `please check email or password` });
             console.log(`joi displayed an error${error}`);
         }
         return res.status(400).send(`an error occured there is ${error} !!`);
@@ -141,27 +139,12 @@ export const deletecomment = async (req, res) => {
     }
 };
 export const blog_post = async (req, res) => {
-    upload(req, res, async (err) => {
-        if (err) {
-            return res.status(400).json({ err });
-        }
-        if (req.file === undefined) {
-            return res.status(400).json({ err: 'Please select an image to br used' });
-        }
-    });
     try {
-        if (req.file) {
-            const resulti = await cloudinary.uploader.upload(req.file.path, {
-                folder: "MY_BRAND"
-            });
-            const { title, description } = req.body;
-            const newcommente = await blogschemamodel.create({ title, description, photo: {
-                    public_id: resulti.public_id,
-                    secure_url: resulti.secure_url
-                }, });
-            await newcommente.save();
-            res.json(newcommente);
-        }
+        const { title, description } = req.body;
+        const image = req.file?.filename;
+        const newcommente = await blogschemamodel.create({ title, description, image });
+        await newcommente.save();
+        res.json(newcommente);
     }
     catch (error) {
         res.status(400).json({ error: ` an error occured is ${error}` });

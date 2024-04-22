@@ -4,6 +4,7 @@
   import cookie from  'cookie-parser'
   import cloudinary from '../midleware/cloudinary.js'
  import upload from '../routes/multer.js'
+ import multer from 'multer'
 
  
   import {getBlogs, getuserbyemail,getallcomments} from '../db/users.js'
@@ -54,7 +55,7 @@ import { isStrongPassword } from 'validator'
     } }
      catch(error:any){
       if(error.isJoi==true){
-         return res.status(400).json({error:`joi displayed an error${error}`})
+         return res.status(400).json({error:`please check email or password`})
          console.log(`joi displayed an error${error}`)
       }
    
@@ -214,31 +215,17 @@ import { isStrongPassword } from 'validator'
             
             
             
-            upload(req, res, async (err:any) => {
-               if (err) {
-                 return res.status(400).json({ err });
-               }
-           
-               if (req.file === undefined) {
-                 return res.status(400).json({ err: 'Please select an image to br used' });
-               }})
            
             try{
-                        if(req.file){
-               const resulti = await cloudinary.uploader.upload(req.file.path, {
-                  folder: "MY_BRAND"
-                });
+                        
                
                const{title,description}=req.body
-                              
+                   const image=req.file?.filename           
                
-      const newcommente=await blogschemamodel.create({title,description, photo: {
-         public_id: resulti.public_id,
-         secure_url: resulti.secure_url
-       },})
+      const newcommente=await blogschemamodel.create({title,description, image})
               await newcommente.save()
                res.json(newcommente)
-            }}
+            }
              catch (error){
                     res.status(400).json({error:` an error occured is ${error}`})
              }

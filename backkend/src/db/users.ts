@@ -65,14 +65,9 @@ import bcrypt from 'bcrypt'
    }
     ))
     const blogschema=new mongoose.Schema(({
-      photo: {
-        public_id: {
-         type: String
-        },
-        secure_url: {
-         type: String
-        }
-     },
+      image:{
+        type:String
+      },
      
       title:{
           type:String,
