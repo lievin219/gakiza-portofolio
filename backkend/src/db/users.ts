@@ -1,5 +1,6 @@
  import mongoose, { model, models } from 'mongoose'
 import bcrypt from 'bcrypt'
+import { required } from 'joi'
   
   const userschema=new mongoose.Schema(({
      email:{
@@ -66,7 +67,8 @@ import bcrypt from 'bcrypt'
     ))
     const blogschema=new mongoose.Schema(({
       image:{
-        type:String
+        type:String,
+        required:true
       },
      
       title:{

@@ -24,31 +24,31 @@
 /// <reference types="mongoose/types/inferschematype" />
 import mongoose from 'mongoose';
 export declare const blogschemamodel: mongoose.Model<{
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 }> & {
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 }>> & mongoose.FlatRecord<{
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>>;
@@ -134,29 +134,29 @@ export declare const commentschemamodel: mongoose.Model<{
     _id: mongoose.Types.ObjectId;
 }>>;
 export declare const getBlogs: () => mongoose.Query<(mongoose.Document<unknown, {}, {
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 }> & {
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 })[], mongoose.Document<unknown, {}, {
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 }> & {
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, {}, {
+    image: string;
     title: string;
     description: string;
-    image?: string | null | undefined;
 }, "find">;
 export declare const getallcomments: () => mongoose.Query<(mongoose.Document<unknown, {}, {
     email: string;
