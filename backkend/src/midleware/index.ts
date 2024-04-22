@@ -36,20 +36,21 @@ import { getuserbyemail } from '../db/users';
 
     if (token) {
         // Verify the token
-        jwt.verify(token, 'gakiza code secret', (err: any, decodedToken: any) => {
+        jwt.verify(token, 'gakiza code secret', async(err: any, decodedToken: any) => {
             if (err) {
                 // If token verification fails, send an error response
                 res.status(401).json({ error: 'Unauthorized' });
-            } else {
+            } try {
+              const user=await usermodel.findById(decodedToken.id)
                 // If token is valid, check if the user is an admin
-                if (decodedToken && decodedToken.isAdmin) {
+                if (user && user.isAdmin) {
                     // If user is admin, proceed to the next middleware
                     next();
-                } else {
+                }} catch(error) {
                     // If user is not an admin, send an error response
                     res.status(403).json({ error: 'Forbidden' });
                 }
-            }
+            
         });
     } else {
         // If no token is provided, send an error response
