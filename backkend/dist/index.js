@@ -8,7 +8,7 @@ import { getalcomments, getallblogs } from './controllers/authcontrollers.js';
 import { blog_post, deletecomment, update_comment } from './controllers/authcontrollers.js';
 import { comment_post, contact_get, log_out, login_post, } from './controllers/authcontrollers.js';
 import { signup_post } from './controllers/authcontrollers.js';
-import { require_auth } from './midleware/index.js';
+import { admin_auth, require_auth } from './midleware/index.js';
 export const app = express();
 app.use(express.json());
 app.use(cookie_parser());
@@ -357,7 +357,7 @@ app.get('/homi', (req, res) => {
 *                   type: string
 *                   description: Error message.
 */
-app.post("/blog", require_auth, blog_post);
+app.post("/blog", require_auth, admin_auth, blog_post);
 /**
 * @swagger
 * /comment:
