@@ -27,25 +27,28 @@ import { getuserbyemail } from '../db/users';
         else{
              res.json({error:"it seems you are not signed in!"});
         }}
-        export const admin_auth = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+        export const admin_auth = (req:express.Request, res:express.Response, next:express.NextFunction) => {
           const token = req.headers.authorization?.split(' ')[1];
-      
-          if (token) {
-              jwt.verify(token, 'gakiza code secret', (err: any, decodedToken: any) => {
-                  if (err) {
-                      res.status(400).json({ error: err });
-                  } else {
-                      // Check if the user is an admin
-                      if (decodedToken && decodedToken.isAdmin) {
-                          next(); // User is an admin, proceed to the next middleware
-                      } else {
-                          res.status(403).json({ error: "Access Denied! You don't have permission to access this resource." });
-                      }
-                  }
-              });
-          } else {
-              res.status(401).json({ error: "Unauthorized! It seems you are not signed in." });
+          if (!token) {
+            return res.redirect("back");
           }
-      };
-      
-     
+        
+          jwt.verify(token, 'gakiza code secret', async (err: jwt.VerifyErrors | null, decodedInfo: any) => {
+            if (err) {
+              console.log(err.message);
+              return res.status(500).send("Internal Server Error");
+            }
+        
+            try {
+              const user = await usermodel.findById(decodedInfo.id);
+              if (!user || !user.isAdmin) {
+                return res.redirect("back")
+              }
+              next();
+            } catch (error) {
+              console.error("Error retrieving user:", error);
+              return res.status(500).send("Internal Server Error");
+            }
+          });
+        };
+        

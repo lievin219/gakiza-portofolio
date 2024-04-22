@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import { usermodel } from '../db/users';
 ;
 export const require_auth = (req, res, next) => {
     const tokene = req.headers.authorization?.split(' ')[1];
@@ -19,24 +20,25 @@ export const require_auth = (req, res, next) => {
 };
 export const admin_auth = (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
-    if (token) {
-        jwt.verify(token, 'gakiza code secret', (err, decodedToken) => {
-            if (err) {
-                res.status(400).json({ error: err });
-            }
-            else {
-                // Check if the user is an admin
-                if (decodedToken && decodedToken.isAdmin) {
-                    next(); // User is an admin, proceed to the next middleware
-                }
-                else {
-                    res.status(403).json({ error: "Access Denied! You don't have permission to access this resource." });
-                }
-            }
-        });
+    if (!token) {
+        return res.redirect("back");
     }
-    else {
-        res.status(401).json({ error: "Unauthorized! It seems you are not signed in." });
-    }
+    jwt.verify(token, 'gakiza code secret', async (err, decodedInfo) => {
+        if (err) {
+            console.log(err.message);
+            return res.status(500).send("Internal Server Error");
+        }
+        try {
+            const user = await usermodel.findById(decodedInfo.id);
+            if (!user || !user.isAdmin) {
+                return res.redirect("back");
+            }
+            next();
+        }
+        catch (error) {
+            console.error("Error retrieving user:", error);
+            return res.status(500).send("Internal Server Error");
+        }
+    });
 };
 //# sourceMappingURL=index.js.map
