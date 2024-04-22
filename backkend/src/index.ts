@@ -12,7 +12,7 @@
   import bodyparser from 'body-parser'
      import {comment_post, contact_get, log_out, login_post, signup_get,}from './controllers/authcontrollers.js'  
       import {signup_post} from './controllers/authcontrollers.js'
-import { admin_auth, require_auth } from './midleware/index.js'
+import { require_auth } from './midleware/index.js'
 export  const app=express()
 app.use(express.json())
  
@@ -398,7 +398,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   type: string
  *                   description: Error message.
  */
-                app.post("/blog",admin_auth,blog_post)
+                app.post("/blog",blog_post)
  
               /**
  * @swagger
