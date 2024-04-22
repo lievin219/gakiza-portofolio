@@ -209,6 +209,11 @@ import { isStrongPassword } from 'validator'
           }}
 
           export const blog_post=async (req:express.Request,res:express.Response)=>{
+            
+           
+            
+            
+            
             upload(req, res, async (err:any) => {
                if (err) {
                  return res.status(400).json({ err });
