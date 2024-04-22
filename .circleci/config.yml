@@ -24,25 +24,9 @@ jobs:
           name: Test API
           command: cd backkend && npm run test
 
-  deploying:
-    docker:
-      - image: cimg/node:21.7.1
-    steps:
-      - checkout
-      - run:
-          name: Deploy to Render
-          command: |
-
 workflows:
   version: 2
   build-test-and-deploy:
     jobs:
       - building
       - testing
-      - deploying:
-          requires:
-            - building
-          filters:
-            branches:
-              only:
-                - main
