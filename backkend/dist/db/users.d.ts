@@ -73,23 +73,29 @@ export declare const blogschemamodel: mongoose.Model<{
 export declare const usermodel: mongoose.Model<{
     email: string;
     password: string;
+    isAdmin: boolean;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     email: string;
     password: string;
+    isAdmin: boolean;
 }> & {
     email: string;
     password: string;
+    isAdmin: boolean;
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
     email: string;
     password: string;
+    isAdmin: boolean;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     email: string;
     password: string;
+    isAdmin: boolean;
 }>> & mongoose.FlatRecord<{
     email: string;
     password: string;
+    isAdmin: boolean;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>>;
@@ -208,6 +214,7 @@ export declare const getallcomments: () => mongoose.Query<(mongoose.Document<unk
 export declare const createUser: (values: Record<string, any>) => Promise<{
     email: string;
     password: string;
+    isAdmin: boolean;
 } & {
     _id: mongoose.Types.ObjectId;
 } & Required<{
@@ -256,29 +263,36 @@ export declare const deleteuserbyid: (id: string) => mongoose.Query<(mongoose.Do
 export declare const getuserbyemail: (email: string) => mongoose.Query<(mongoose.Document<unknown, {}, {
     email: string;
     password: string;
+    isAdmin: boolean;
 }> & {
     email: string;
     password: string;
+    isAdmin: boolean;
 } & {
     _id: mongoose.Types.ObjectId;
 }) | null, mongoose.Document<unknown, {}, {
     email: string;
     password: string;
+    isAdmin: boolean;
 }> & {
     email: string;
     password: string;
+    isAdmin: boolean;
 } & {
     _id: mongoose.Types.ObjectId;
 }, {}, {
     email: string;
     password: string;
+    isAdmin: boolean;
 }, "findOne">;
 export declare const login: (email: any, password: any) => Promise<mongoose.Document<unknown, {}, {
     email: string;
     password: string;
+    isAdmin: boolean;
 }> & {
     email: string;
     password: string;
+    isAdmin: boolean;
 } & {
     _id: mongoose.Types.ObjectId;
 }>;

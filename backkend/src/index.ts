@@ -2,7 +2,7 @@
   import mongoose from 'mongoose' 
   import cookie_parser from 'cookie-parser'
   import cors from 'cors'
-  import { isAdmin } from './midleware/index.js'
+  
   import path from 'path'
  import  { fileURLToPath} from 'url'
   import swaggerUi from 'swagger-ui-express'

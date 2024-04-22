@@ -11,6 +11,9 @@ before(function(done) {
    });
   setTimeout(done, 1000);
 });
+after(function() {
+    process.exit();
+});
 
 describe('Contact Message API', () => {
   it('should return an a logged in user', function(done) {
