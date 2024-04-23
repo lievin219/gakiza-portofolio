@@ -143,7 +143,7 @@ export const blog_post = async (req, res) => {
         const { title, description, image } = req.body;
         const newcommente = await blogschemamodel.create({ title, description, image });
         await newcommente.save();
-        res.status(200).json(newcommente);
+        res.status(200).json({ newcommente });
     }
     catch (error) {
         res.status(400).json({ error: ` an error occured is ${error}` });
