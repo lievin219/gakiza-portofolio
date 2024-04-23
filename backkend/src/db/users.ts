@@ -70,7 +70,7 @@ import { required } from 'joi'
      
       title:{
           type:String,
-           required:true,
+          
             lowercase:true,
             unique:true,
             
@@ -78,7 +78,7 @@ import { required } from 'joi'
       },
        description:{
           type:String,
-           required:true,
+       
            
        }
        

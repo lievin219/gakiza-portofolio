@@ -20,9 +20,6 @@ import hapijoi from '@hapi/joi'
    email:Joi.string().email().required(),
     password: Joi.string().required()
 });
-  export const blog_validate=Joi.object({
-  title:Joi.string().required(),
-    description:Joi.string().lowercase().required()
-  })
+  
              
 

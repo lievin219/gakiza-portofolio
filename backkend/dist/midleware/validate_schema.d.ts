@@ -4,4 +4,3 @@ export declare const authschema: Joi.ObjectSchema<any>;
 export declare const contact_validate: Joi.ObjectSchema<any>;
 export declare const comment_validate: Joi.ObjectSchema<any>;
 export declare const loginSchema: Joi.ObjectSchema<any>;
-export declare const blog_validate: Joi.ObjectSchema<any>;

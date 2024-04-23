@@ -8,7 +8,7 @@
 
  
   import {getBlogs, getuserbyemail,getallcomments} from '../db/users.js'
-  import {blog_validate}  from '../midleware/validate_schema.js'
+  
    import jwt from 'jsonwebtoken'
 import {blogschemamodel, deleteuserbyid} from '../db/users.js'
    import { commentschemamodel, getuserByid, usermodel } from '../db/users.js'
