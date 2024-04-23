@@ -357,7 +357,7 @@ app.get('/homi', (req, res) => {
 *                   type: string
 *                   description: Error message.
 */
-app.post("/blog", isAdmin_auth, blog_post);
+app.post("/blog", require_auth, blog_post);
 /**
 * @swagger
 * /comment:
