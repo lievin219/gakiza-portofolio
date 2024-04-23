@@ -1,5 +1,4 @@
 import { getBlogs, getuserbyemail, getallcomments } from '../db/users.js';
-import { blog_validate } from '../midleware/validate_schema.js';
 import jwt from 'jsonwebtoken';
 import { blogschemamodel, deleteuserbyid } from '../db/users.js';
 import { commentschemamodel, getuserByid } from '../db/users.js';
@@ -141,8 +140,8 @@ export const deletecomment = async (req, res) => {
 };
 export const blog_post = async (req, res) => {
     try {
-        const blogvalues = await blog_validate.validateAsync(req.body);
-        const newcommente = await blogschemamodel.create({ title: blogvalues.title, description: blogvalues.description });
+        const { title, description } = req.body;
+        const newcommente = await blogschemamodel.create({ title, description });
         await newcommente.save();
         res.status(200).json(newcommente);
     }
