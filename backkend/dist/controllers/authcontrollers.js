@@ -144,7 +144,7 @@ export const blog_post = async (req, res) => {
         const blogvalues = await blog_validate.validateAsync(req.body);
         const newcommente = await blogschemamodel.create({ image: blogvalues.image, title: blogvalues.title, description: blogvalues.description });
         await newcommente.save();
-        res.status(200).json({ newcommente: newcommente });
+        res.status(200).json(newcommente);
     }
     catch (error) {
         res.status(404).json({ error: ` an error occured is ${error}` });
