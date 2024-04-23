@@ -222,7 +222,7 @@ import { isStrongPassword } from 'validator'
               
                             
                
-      const newcommente=await blogschemamodel.create({image:blogvalues.image,title:blogvalues.title,description:blogvalues.description})
+      const newcommente=await blogschemamodel.create({title:blogvalues.title,description:blogvalues.description})
               await newcommente.save()
                res.status(200).json(newcommente)
             }

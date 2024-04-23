@@ -48,10 +48,6 @@ const commentschema = new mongoose.Schema(({
     }
 }));
 const blogschema = new mongoose.Schema(({
-    image: {
-        type: String,
-        required: true
-    },
     title: {
         type: String,
         required: true,

@@ -66,10 +66,7 @@ import { required } from 'joi'
    }
     ))
     const blogschema=new mongoose.Schema(({
-      image:{
-        type:String,
-        required:true
-      },
+      
      
       title:{
           type:String,

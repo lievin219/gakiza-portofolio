@@ -24,29 +24,23 @@
 /// <reference types="mongoose/types/inferschematype" />
 import mongoose from 'mongoose';
 export declare const blogschemamodel: mongoose.Model<{
-    image: string;
     title: string;
     description: string;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
-    image: string;
     title: string;
     description: string;
 }> & {
-    image: string;
     title: string;
     description: string;
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
-    image: string;
     title: string;
     description: string;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
-    image: string;
     title: string;
     description: string;
 }>> & mongoose.FlatRecord<{
-    image: string;
     title: string;
     description: string;
 }> & {
@@ -134,27 +128,22 @@ export declare const commentschemamodel: mongoose.Model<{
     _id: mongoose.Types.ObjectId;
 }>>;
 export declare const getBlogs: () => mongoose.Query<(mongoose.Document<unknown, {}, {
-    image: string;
     title: string;
     description: string;
 }> & {
-    image: string;
     title: string;
     description: string;
 } & {
     _id: mongoose.Types.ObjectId;
 })[], mongoose.Document<unknown, {}, {
-    image: string;
     title: string;
     description: string;
 }> & {
-    image: string;
     title: string;
     description: string;
 } & {
     _id: mongoose.Types.ObjectId;
 }, {}, {
-    image: string;
     title: string;
     description: string;
 }, "find">;

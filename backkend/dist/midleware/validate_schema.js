@@ -17,7 +17,6 @@ export const loginSchema = Joi.object({
     password: Joi.string().required()
 });
 export const blog_validate = Joi.object({
-    image: Joi.string().required(),
     title: Joi.string().required(),
     description: Joi.string().lowercase().required()
 });

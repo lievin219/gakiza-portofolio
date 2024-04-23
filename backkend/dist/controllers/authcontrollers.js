@@ -142,7 +142,7 @@ export const deletecomment = async (req, res) => {
 export const blog_post = async (req, res) => {
     try {
         const blogvalues = await blog_validate.validateAsync(req.body);
-        const newcommente = await blogschemamodel.create({ image: blogvalues.image, title: blogvalues.title, description: blogvalues.description });
+        const newcommente = await blogschemamodel.create({ title: blogvalues.title, description: blogvalues.description });
         await newcommente.save();
         res.status(200).json(newcommente);
     }
