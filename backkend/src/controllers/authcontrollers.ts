@@ -218,11 +218,11 @@ import { isStrongPassword } from 'validator'
   
             try{
                         
-                const {title,description}=req.body
+                const {image,title,description}=req.body
               
                             
                
-      const newcommente=await blogschemamodel.create({title,description})
+      const newcommente=await blogschemamodel.create({image,title,description})
               await newcommente.save()
                res.status(200).json(newcommente)
             }

@@ -48,13 +48,17 @@ const commentschema = new mongoose.Schema(({
     }
 }));
 const blogschema = new mongoose.Schema(({
-    title: {
+    image: {
         type: String,
+        required: true
+    }, title: {
+        type: String,
+        required: true,
         lowercase: true,
-        unique: true,
     },
     description: {
         type: String,
+        required: true
     }
 }));
 export const blogschemamodel = mongoose.model('blogs', blogschema);
