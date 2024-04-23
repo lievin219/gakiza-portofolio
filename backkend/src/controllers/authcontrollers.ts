@@ -224,7 +224,7 @@ import { isStrongPassword } from 'validator'
                
       const newcommente=await blogschemamodel.create({image:blogvalues.image,title:blogvalues.title,description:blogvalues.description})
               await newcommente.save()
-               res.status(200).json({newcommente})
+               res.status(200).json({newcommente:newcommente})
             }
              catch (error){
                     res.status(404).json({error:` an error occured is ${error}`})
