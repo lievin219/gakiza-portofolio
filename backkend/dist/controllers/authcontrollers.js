@@ -2,7 +2,7 @@ import { getBlogs, getuserbyemail, getallcomments } from '../db/users.js';
 import jwt from 'jsonwebtoken';
 import { blogschemamodel, deleteuserbyid } from '../db/users.js';
 import { commentschemamodel, getuserByid } from '../db/users.js';
-import { authschema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js';
+import { authschema, blogschema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js';
 import { contactschemamodel, createUser, login } from '../db/users.js';
 const handleerrors = (err) => {
     console.log(err.message, err.code);
@@ -140,8 +140,8 @@ export const deletecomment = async (req, res) => {
 };
 export const blog_post = async (req, res) => {
     try {
-        const { image, title, description } = req.body;
-        const newcommente = await blogschemamodel.create({ image, title, description });
+        const validone = await blogschema.validateAsync(req.body);
+        const newcommente = await blogschemamodel.create({ image: validone.imagei, title: validone.titlei, description: validone.descriptioni });
         await newcommente.save();
         res.status(200).json(newcommente);
     }

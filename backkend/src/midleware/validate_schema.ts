@@ -20,6 +20,11 @@ import hapijoi from '@hapi/joi'
    email:Joi.string().email().required(),
     password: Joi.string().required()
 });
+export   const blogschema = Joi.object({
+  imagei:Joi.string().email().required(),
+   titlei: Joi.string().required(),
+   descriptioni:Joi.string().required()
+});
   
              
 
