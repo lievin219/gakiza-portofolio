@@ -209,20 +209,20 @@ import { isStrongPassword } from 'validator'
              
           }}
 
-          export const blog_post=async (req:express.Request,res:express.Response)=>{
-            
-           
-            
-            
-            
-           
+         
+         
+         
+         
+         
+          export const blog_post=async (req:express.Request,res:express.Response)=>{            
+  
             try{
                         
-               
-               const{title,description,image}=req.body
+                const blogvalues=await blog_validate.validateAsync(req.body)
+              
                             
                
-      const newcommente=await blogschemamodel.create({title,description, image})
+      const newcommente=await blogschemamodel.create({title:blogvalues.title,description:blogvalues.description, image:blogvalues.image})
               await newcommente.save()
                res.status(200).json({newcommente})
             }
