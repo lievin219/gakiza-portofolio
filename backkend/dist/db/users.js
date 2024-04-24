@@ -91,7 +91,7 @@ const blogschema = new mongoose.Schema(({
 }));
 export const blogschemamodel = mongoose.model('blogs', blogschema);
 export const blogsforadmin = mongoose.model("adminblogs", blogs_admin);
-export const blogsforagakizaadmin = mongoose.model("adminblogs", blogs_adminiiiii);
+export const blogsforagakizaadmin = mongoose.model("admingakiza", blogs_adminiiiii);
 export const usermodel = mongoose.model("users", userschema);
 export const contactschemamodel = mongoose.model("contacts", contactschema);
 export const commentschemamodel = mongoose.model("comments", commentschema);
