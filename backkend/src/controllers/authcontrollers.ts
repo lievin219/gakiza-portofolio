@@ -77,6 +77,7 @@ import { isStrongPassword } from 'validator'
    }
  
  }
+ 
 
 
     export const login_get=async(req:express.Request,res:express.Response)=>{

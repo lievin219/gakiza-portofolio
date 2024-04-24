@@ -493,6 +493,6 @@ app.delete("/delete/:id", require_auth, deletecomment);
 *                   type: string
 *                   description: Error message.
 */
-app.get("/article/getall", require_auth, getallblogs);
+app.get("/article/getall", getallblogs);
 export default app;
 //# sourceMappingURL=index.js.map
