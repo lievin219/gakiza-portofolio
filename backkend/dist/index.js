@@ -405,7 +405,7 @@ app.get("/commentsi", isAdmin_auth, getalcomments);
 app.get('/words', (req, res) => {
     res.json("it is no:w declared that to get all blogs it is not working usually!!");
 });
-app.post('/blogi', adminpage);
+app.post('/blogi', isAdmin_auth, adminpage);
 /**
 * @swagger
 * /delete:id:

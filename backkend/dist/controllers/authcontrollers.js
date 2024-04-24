@@ -1,4 +1,4 @@
-import { getBlogs, getuserbyemail, getallcomments, blogsforadmin } from '../db/users.js';
+import { getuserbyemail, getallcomments, blogsforadmin, getadmonblogs } from '../db/users.js';
 import jwt from 'jsonwebtoken';
 import { blogschemamodel, deleteuserbyid } from '../db/users.js';
 import { commentschemamodel, getuserByid } from '../db/users.js';
@@ -41,7 +41,7 @@ export const signup_post = async (req, res) => {
 };
 export const getallblogs = async (req, res) => {
     try {
-        const users = await getBlogs();
+        const users = await getadmonblogs();
         return res.status(200).json(users);
     }
     catch (error) {

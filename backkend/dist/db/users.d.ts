@@ -187,6 +187,31 @@ export declare const getBlogs: () => mongoose.Query<(mongoose.Document<unknown, 
     title: string;
     description: string;
 }, "find">;
+export declare const getadmonblogs: () => mongoose.Query<(mongoose.Document<unknown, {}, {
+    image: string;
+    title: string;
+    description: string;
+}> & {
+    image: string;
+    title: string;
+    description: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+})[], mongoose.Document<unknown, {}, {
+    image: string;
+    title: string;
+    description: string;
+}> & {
+    image: string;
+    title: string;
+    description: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+}, {}, {
+    image: string;
+    title: string;
+    description: string;
+}, "find">;
 export declare const getallcomments: () => mongoose.Query<(mongoose.Document<unknown, {}, {
     email: string;
     message: string;

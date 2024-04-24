@@ -447,7 +447,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
                 app.get('/words',(req:express.Request,res:express.Response)=>{
                    res.json("it is no:w declared that to get all blogs it is not working usually!!")
                 })
-                app.post('/blogi',adminpage)
+                app.post('/blogi',isAdmin_auth,adminpage)
 
  /**
  * @swagger

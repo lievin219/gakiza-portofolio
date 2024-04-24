@@ -94,8 +94,8 @@ import { required } from 'joi'
           type:String,
           required:true}
        
-   }))
-
+   }))                
+                    
 
  
    export  const blogschemamodel=mongoose.model('blogs',blogschema)
@@ -104,6 +104,7 @@ import { required } from 'joi'
    export const  contactschemamodel=mongoose.model("contacts",contactschema);
    export const  commentschemamodel=mongoose.model("comments",commentschema)
    export const getBlogs=()=>blogschemamodel.find()
+   export const getadmonblogs=()=>blogsforadmin.find()
    export const getallcomments=()=>commentschemamodel.find()
    export const createUser=(values:Record<string,any>)=>new usermodel(values).save().then((user)=>
         user.toObject())
