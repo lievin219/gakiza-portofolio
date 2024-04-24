@@ -65,6 +65,22 @@ import { required } from 'joi'
        }
    }
     ))
+    const blogs_admin=new mongoose.Schema(({
+       image:{
+        type:String,
+        required:true
+
+       },
+       title:{
+        type:String,
+        required:true
+
+       },
+       description:{
+           type:String,
+           required:true
+       }
+    }))
     const blogschema=new mongoose.Schema(({
       image:{
         type:String,
@@ -83,6 +99,7 @@ import { required } from 'joi'
 
  
    export  const blogschemamodel=mongoose.model('blogs',blogschema)
+   export const blogsforadmin=mongoose.model("adminblogs",blogs_admin)
    export const  usermodel=mongoose.model("users",userschema);
    export const  contactschemamodel=mongoose.model("contacts",contactschema);
    export const  commentschemamodel=mongoose.model("comments",commentschema)

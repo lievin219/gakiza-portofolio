@@ -11,3 +11,4 @@ export declare const update_comment: (req: express.Request, res: express.Respons
 export declare const getalcomments: (req: express.Request, res: express.Response) => Promise<express.Response<any, Record<string, any>>>;
 export declare const deletecomment: (req: express.Request, res: express.Response) => Promise<express.Response<any, Record<string, any>>>;
 export declare const blog_post: (req: express.Request, res: express.Response) => Promise<void>;
+export declare const adminpage: (req: express.Request, res: express.Response) => Promise<void>;

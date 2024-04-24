@@ -1,8 +1,8 @@
-import { getBlogs, getuserbyemail, getallcomments } from '../db/users.js';
+import { getBlogs, getuserbyemail, getallcomments, blogsforadmin } from '../db/users.js';
 import jwt from 'jsonwebtoken';
 import { blogschemamodel, deleteuserbyid } from '../db/users.js';
 import { commentschemamodel, getuserByid } from '../db/users.js';
-import { authschema, blogshema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js';
+import { adminvali_date, authschema, blogshema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js';
 import { contactschemamodel, createUser, login } from '../db/users.js';
 const handleerrors = (err) => {
     console.log(err.message, err.code);
@@ -143,10 +143,21 @@ export const blog_post = async (req, res) => {
         const validone = await blogshema.validateAsync(req.body);
         const newcommente = await blogschemamodel.create({ image: validone.image, title: validone.title, description: validone.description });
         await newcommente.save();
-        res.status(200).json(newcommente);
+        res.status(200).json({ newcommente });
     }
     catch (error) {
         res.status(404).json({ error: ` an error occured is ${error}` });
+    }
+};
+export const adminpage = async (req, res) => {
+    try {
+        const validpages = await adminvali_date.validateAsync(req.body);
+        const newitem = await blogsforadmin.create({ image: validpages.image, title: validpages.title, description: validpages.description });
+        await newitem.save();
+        res.status(200).json(newitem);
+    }
+    catch (error) {
+        res.status(400).json({ error });
     }
 };
 //# sourceMappingURL=authcontrollers.js.map

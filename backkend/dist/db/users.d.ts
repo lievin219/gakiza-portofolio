@@ -52,6 +52,35 @@ export declare const blogschemamodel: mongoose.Model<{
 }> & {
     _id: mongoose.Types.ObjectId;
 }>>;
+export declare const blogsforadmin: mongoose.Model<{
+    image: string;
+    title: string;
+    description: string;
+}, {}, {}, {}, mongoose.Document<unknown, {}, {
+    image: string;
+    title: string;
+    description: string;
+}> & {
+    image: string;
+    title: string;
+    description: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+}, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+    image: string;
+    title: string;
+    description: string;
+}, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
+    image: string;
+    title: string;
+    description: string;
+}>> & mongoose.FlatRecord<{
+    image: string;
+    title: string;
+    description: string;
+}> & {
+    _id: mongoose.Types.ObjectId;
+}>>;
 export declare const usermodel: mongoose.Model<{
     email: string;
     password: string;
