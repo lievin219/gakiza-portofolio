@@ -7,7 +7,7 @@
  import multer from 'multer'
 
  
-  import {getBlogs, getuserbyemail,getallcomments, blogsforadmin, getadmonblogs} from '../db/users.js'
+  import {getBlogs, getuserbyemail,getallcomments, blogsforadmin, getadmonblogs, blogsforagakizaadmin} from '../db/users.js'
   
    import jwt from 'jsonwebtoken'
 import {blogschemamodel, deleteuserbyid} from '../db/users.js'
@@ -247,7 +247,7 @@ import { isStrongPassword } from 'validator'
             export const gakiapage=async(req:express.Request,res:express.Response)=>{
                try{
                 const validpages=await adminvali_month.validateAsync(req.body)
-               const newitem=await blogsforadmin.create({image:validpages.image,title:validpages.title,description:validpages.description})
+               const newitem=await blogsforagakizaadmin.create({image:validpages.image,title:validpages.title,description:validpages.description})
                await newitem.save()
                 res.status(200).json(newitem)
                }

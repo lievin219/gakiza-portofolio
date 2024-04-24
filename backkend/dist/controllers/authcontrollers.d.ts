@@ -12,3 +12,4 @@ export declare const getalcomments: (req: express.Request, res: express.Response
 export declare const deletecomment: (req: express.Request, res: express.Response) => Promise<express.Response<any, Record<string, any>>>;
 export declare const blog_post: (req: express.Request, res: express.Response) => Promise<void>;
 export declare const adminpage: (req: express.Request, res: express.Response) => Promise<void>;
+export declare const gakiapage: (req: express.Request, res: express.Response) => Promise<void>;

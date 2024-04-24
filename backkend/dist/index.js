@@ -4,7 +4,7 @@ import cookie_parser from 'cookie-parser';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import swaggerjsdoc from 'swagger-jsdoc';
-import { adminpage, getalcomments, getallblogs } from './controllers/authcontrollers.js';
+import { adminpage, gakiapage, getalcomments, getallblogs } from './controllers/authcontrollers.js';
 import { blog_post, deletecomment, update_comment } from './controllers/authcontrollers.js';
 import { comment_post, contact_get, log_out, login_post, } from './controllers/authcontrollers.js';
 import { signup_post } from './controllers/authcontrollers.js';
@@ -406,6 +406,7 @@ app.get('/words', (req, res) => {
     res.json("it is no:w declared that to get all blogs it is not working usually!!");
 });
 app.post('/blogi', isAdmin_auth, adminpage);
+app.post('/bloge', isAdmin_auth, gakiapage);
 /**
 * @swagger
 * /delete:id:
