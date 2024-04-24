@@ -12,7 +12,7 @@
    import jwt from 'jsonwebtoken'
 import {blogschemamodel, deleteuserbyid} from '../db/users.js'
    import { commentschemamodel, getuserByid, usermodel } from '../db/users.js'
-    import { authschema, blogschema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js'
+    import { authschema, blogshema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js'
    import { contactschemamodel, createUser, login } from '../db/users.js'
 import { isStrongPassword } from 'validator'
     
@@ -218,10 +218,10 @@ import { isStrongPassword } from 'validator'
   
             try{
                         
-    const validone=await blogschema.validateAsync(req.body)
+    const validone=await blogshema.validateAsync(req.body)
                             
                
-      const newcommente=await blogschemamodel.create({image:validone.imagei,title:validone.titlei,description:validone.descriptioni})
+      const newcommente=await blogschemamodel.create({image:validone.image,title:validone.titlei,description:validone.description})
               await newcommente.save()
                res.status(200).json(newcommente)
             }
