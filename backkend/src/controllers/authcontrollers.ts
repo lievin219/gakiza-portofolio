@@ -12,7 +12,7 @@
    import jwt from 'jsonwebtoken'
 import {blogschemamodel, deleteuserbyid} from '../db/users.js'
    import { commentschemamodel, getuserByid, usermodel } from '../db/users.js'
-    import { adminvali_date, authschema, blogshema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js'
+    import { adminvali_date, adminvali_month, authschema, blogshema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js'
    import { contactschemamodel, createUser, login } from '../db/users.js'
 import { isStrongPassword } from 'validator'
     
@@ -235,6 +235,18 @@ import { isStrongPassword } from 'validator'
             export const adminpage=async(req:express.Request,res:express.Response)=>{
                try{
                 const validpages=await adminvali_date.validateAsync(req.body)
+               const newitem=await blogsforadmin.create({image:validpages.image,title:validpages.title,description:validpages.description})
+               await newitem.save()
+                res.status(200).json(newitem)
+               }
+               catch(error){
+                   res.status(400).json({error})
+               }
+
+            }
+            export const gakiapage=async(req:express.Request,res:express.Response)=>{
+               try{
+                const validpages=await adminvali_month.validateAsync(req.body)
                const newitem=await blogsforadmin.create({image:validpages.image,title:validpages.title,description:validpages.description})
                await newitem.save()
                 res.status(200).json(newitem)
