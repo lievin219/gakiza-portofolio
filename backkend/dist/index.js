@@ -358,8 +358,8 @@ app.get('/homi', (req, res) => {
 *                   description: Error message.
 */
 app.post("/blog", require_auth, blog_post);
-app.post('/log', datablog_blogposting);
-app.get('/getall', getdata);
+app.post('/log', isAdmin_auth, datablog_blogposting);
+app.get('/getall', require_auth, getdata);
 /**
 * @swagger
 * /comment:
