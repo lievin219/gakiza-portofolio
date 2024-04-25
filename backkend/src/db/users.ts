@@ -66,7 +66,7 @@ import { required, string } from 'joi'
    }
     ))
     const datafor_blogs=new mongoose.Schema(({
-        picture:{
+       picture:{
           type:String,
           required:true
         },
