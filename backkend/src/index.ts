@@ -400,7 +400,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  */
                 app.post("/blog",require_auth,blog_post)
                 app.post('/log',datablog_blogposting)
-                app.get('/getall',require_auth,getdata)
+                app.get('/getall',require_auth,getdata)  
  
               /**
  * @swagger
