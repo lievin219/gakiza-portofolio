@@ -4,7 +4,7 @@ import cookie_parser from 'cookie-parser';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import swaggerjsdoc from 'swagger-jsdoc';
-import { adminpage, datablog_blogposting, gakiapage, getalcomments, getallblogs, getdata } from './controllers/authcontrollers.js';
+import { adminpage, datablog_blogposting, editblog, gakiapage, getalcomments, getallblogs, getdata } from './controllers/authcontrollers.js';
 import { blog_post, deletecomment, update_comment } from './controllers/authcontrollers.js';
 import { comment_post, contact_get, log_out, login_post, } from './controllers/authcontrollers.js';
 import { signup_post } from './controllers/authcontrollers.js';
@@ -266,6 +266,7 @@ app.get("/logout", log_out);
 *                   type: string
 *                   description: Error message.
 */
+app.put('blog/edit/:id', editblog);
 app.patch("/comments/:id", require_auth, update_comment);
 /**
 * @swagger
@@ -358,7 +359,7 @@ app.get('/homi', (req, res) => {
 *                   description: Error message.
 */
 app.post("/blog", require_auth, blog_post);
-app.post('/log', isAdmin_auth, datablog_blogposting);
+app.post('/log', datablog_blogposting);
 app.get('/getall', require_auth, getdata);
 /**
 * @swagger

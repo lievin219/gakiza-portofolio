@@ -193,6 +193,27 @@ import { isStrongPassword } from 'validator'
                     res.json({error:`an error occured is ${error}  `})
                   }
          }  
+export const editblog=async(req:express.Request,res:express.Response)=>{
+    try{
+                 const id =req.params
+             const {picture,subtitle,subdescription}=req.body 
+
+ const newiteming:any=await databasefor_blogs.findById(id)  
+  if(!newiteming){
+   res.status(400).json({message:'id not found yet'})
+  }
+  newiteming.picture=picture;
+  newiteming.subtitle=subtitle
+  newiteming.subdescription=subdescription
+  newiteming.save()
+  res.json({message:"blog posted succesfully"})
+
+    }
+    catch(error){
+      res.status(200).json(error)
+
+    }
+}
          export const getalcomments=async(req:express.Request,res:express.Response)=>{
                  
             try{
