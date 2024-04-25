@@ -1,9 +1,9 @@
-import { getuserbyemail, getallcomments, blogsforadmin, getadmonblogs, blogsforagakizaadmin } from '../db/users.js';
+import { getuserbyemail, getallcomments, blogsforadmin, getadmonblogs, blogsforagakizaadmin, databasefor_blogs } from '../db/users.js';
 import jwt from 'jsonwebtoken';
 import { blogschemamodel, deleteuserbyid } from '../db/users.js';
 import { commentschemamodel, getuserByid } from '../db/users.js';
-import { adminvali_date, adminvali_month, authschema, blogshema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js';
-import { contactschemamodel, createUser, login } from '../db/users.js';
+import { adminvali_date, adminvali_month, authschema, blogshema, comment_validate, contact_validate, loginSchema, blogs_data } from '../midleware/validate_schema.js';
+import { contactschemamodel, createUser, login, getdatablogs } from '../db/users.js';
 const handleerrors = (err) => {
     console.log(err.message, err.code);
     let errors = { email: "", password: "" };
@@ -47,6 +47,14 @@ export const getallblogs = async (req, res) => {
     catch (error) {
         console.log(error);
         return res.sendStatus(400);
+    }
+};
+export const getdata = async (req, res) => {
+    try {
+        const data = await getdatablogs();
+        return res.status(200).json(data);
+    }
+    catch (error) {
     }
 };
 export const login_get = async (req, res) => {
@@ -136,6 +144,17 @@ export const deletecomment = async (req, res) => {
     catch (error) {
         console.log(error);
         return res.status(200).json({ message: `an error occured here` });
+    }
+};
+export const datablog_blogposting = async (req, res) => {
+    try {
+        const main = await blogs_data.validateAsync(req.body);
+        const new_Blogssaq = await databasefor_blogs.create({ picture: main.picture, subtitle: main.subtitle, subdescription: main.subdescription });
+        await new_Blogssaq.save();
+        res.status(400).json(new_Blogssaq);
+    }
+    catch (error) {
+        return res.status(400).json(error);
     }
 };
 export const blog_post = async (req, res) => {

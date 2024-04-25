@@ -1,5 +1,6 @@
 import Joi from '@hapi/joi'
 import hapijoi from '@hapi/joi'
+import { join } from 'path'
 
  export const authschema=Joi.object({
      email:Joi.string().email().required()
@@ -10,6 +11,11 @@ import hapijoi from '@hapi/joi'
     name:Joi.string().required(),
      email:Joi.string().email().required(),
      message:Joi.string().required()
+  })
+  export const blogs_data=Joi.object({
+    picture:Joi.string().required(),
+    subtitle:Joi.string().required(),
+    subdescription:Joi.string().required()
   })
   export const adminvali_date=Joi.object({
     image:Joi.string().required(),

@@ -23,6 +23,35 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import mongoose from 'mongoose';
+export declare const databasefor_blogs: mongoose.Model<{
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+}, {}, {}, {}, mongoose.Document<unknown, {}, {
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+}> & {
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+}, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+}, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+}>> & mongoose.FlatRecord<{
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+}> & {
+    _id: mongoose.Types.ObjectId;
+}>>;
 export declare const blogschemamodel: mongoose.Model<{
     image: string;
     title: string;
@@ -240,6 +269,31 @@ export declare const getadmonblogs: () => mongoose.Query<(mongoose.Document<unkn
     image: string;
     title: string;
     description: string;
+}, "find">;
+export declare const getdatablogs: () => mongoose.Query<(mongoose.Document<unknown, {}, {
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+}> & {
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+})[], mongoose.Document<unknown, {}, {
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+}> & {
+    picture: string;
+    subtitle: string;
+    subdescription: string;
+} & {
+    _id: mongoose.Types.ObjectId;
+}, {}, {
+    picture: string;
+    subtitle: string;
+    subdescription: string;
 }, "find">;
 export declare const getallcomments: () => mongoose.Query<(mongoose.Document<unknown, {}, {
     email: string;

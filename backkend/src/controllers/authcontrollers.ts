@@ -7,13 +7,13 @@
  import multer from 'multer'
 
  
-  import {getBlogs, getuserbyemail,getallcomments, blogsforadmin, getadmonblogs, blogsforagakizaadmin} from '../db/users.js'
+  import {getBlogs, getuserbyemail,getallcomments, blogsforadmin, getadmonblogs, blogsforagakizaadmin, databasefor_blogs} from '../db/users.js'
   
    import jwt from 'jsonwebtoken'
 import {blogschemamodel, deleteuserbyid} from '../db/users.js'
    import { commentschemamodel, getuserByid, usermodel } from '../db/users.js'
-    import { adminvali_date, adminvali_month, authschema, blogshema, comment_validate, contact_validate, loginSchema } from '../midleware/validate_schema.js'
-   import { contactschemamodel, createUser, login } from '../db/users.js'
+    import { adminvali_date, adminvali_month, authschema, blogshema, comment_validate, contact_validate, loginSchema,blogs_data } from '../midleware/validate_schema.js'
+   import { contactschemamodel, createUser, login ,getdatablogs} from '../db/users.js'
 import { isStrongPassword } from 'validator'
     
   
@@ -76,6 +76,15 @@ import { isStrongPassword } from 'validator'
        return res.sendStatus(400)
    }
  
+ }
+ export const getdata=async(req:express.Request,res:express.Response)=>{
+   try{
+       const data=await getdatablogs()
+       return res.status(200).json(data)
+   }
+   catch(error){
+        
+   }
  }
  
 
@@ -209,12 +218,19 @@ import { isStrongPassword } from 'validator'
                 return res.status(200).json({message:`an error occured here`});
              
           }}
+          export const datablog_blogposting=async(req:express.Request,res:express.Response)=>{
+    try{
+  const main=await blogs_data.validateAsync(req.body)
+  const new_Blogssaq=await databasefor_blogs.create({picture:main.picture,subtitle:main.subtitle,subdescription:main.subdescription})
+    await new_Blogssaq.save()
+    res.status(400).json(new_Blogssaq)
 
-         
-         
-         
-         
-         
+
+    }
+    catch(error){
+     return  res.status(400).json(error)
+    }
+          }
           export const blog_post=async (req:express.Request,res:express.Response)=>{            
   
             try{

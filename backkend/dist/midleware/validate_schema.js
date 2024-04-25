@@ -8,6 +8,11 @@ export const contact_validate = Joi.object({
     email: Joi.string().email().required(),
     message: Joi.string().required()
 });
+export const blogs_data = Joi.object({
+    picture: Joi.string().required(),
+    subtitle: Joi.string().required(),
+    subdescription: Joi.string().required()
+});
 export const adminvali_date = Joi.object({
     image: Joi.string().required(),
     title: Joi.string().required(),

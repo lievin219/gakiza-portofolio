@@ -7,7 +7,7 @@
  import  { fileURLToPath} from 'url'
   import swaggerUi from 'swagger-ui-express'
    import swaggerjsdoc from 'swagger-jsdoc'
-  import {adminpage, gakiapage, getalcomments, getallblogs} from './controllers/authcontrollers.js'
+  import {adminpage, datablog_blogposting, gakiapage, getalcomments, getallblogs, getdata} from './controllers/authcontrollers.js'
   import { blog_post, deletecomment, update_comment } from './controllers/authcontrollers.js'
   import bodyparser from 'body-parser'
      import {comment_post, contact_get, log_out, login_post, signup_get,}from './controllers/authcontrollers.js'  
@@ -399,6 +399,8 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   description: Error message.
  */
                 app.post("/blog",require_auth,blog_post)
+                app.post('/log',datablog_blogposting)
+                app.get('/getall',getdata)
  
               /**
  * @swagger
@@ -448,7 +450,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
                    res.json("it is no:w declared that to get all blogs it is not working usually!!")
                 })
                 app.post('/blogi',isAdmin_auth,adminpage)
-                app.post('/bloge',isAdmin_auth,gakiapage)
+                app.post('/bloge',gakiapage)
 
  /**
  * @swagger
