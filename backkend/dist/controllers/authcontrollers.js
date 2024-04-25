@@ -148,8 +148,8 @@ export const deletecomment = async (req, res) => {
 };
 export const datablog_blogposting = async (req, res) => {
     try {
-        const main = await blogs_data.validateAsync(req.body);
-        const new_Blogssaq = await databasefor_blogs.create({ picture: main.picture, subtitle: main.subtitle, subdescription: main.subdescription });
+        let main = await blogs_data.validateAsync(req.body);
+        let new_Blogssaq = await databasefor_blogs.create({ picture: main.picture, subtitle: main.subtitle, subdescription: main.subdescription });
         await new_Blogssaq.save();
         res.status(400).json(new_Blogssaq);
     }
