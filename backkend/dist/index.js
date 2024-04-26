@@ -1,6 +1,5 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import cookie_parser from 'cookie-parser';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import swaggerjsdoc from 'swagger-jsdoc';
@@ -11,18 +10,10 @@ import { signup_post } from './controllers/authcontrollers.js';
 import { isAdmin_auth, require_auth } from './midleware/index.js';
 export const app = express();
 app.use(express.json());
-app.use(cookie_parser());
 app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['Authorization'],
+    origin: 'https://lievin219.github.io',
     credentials: true
 }));
-//app.use(cors({
-// origin:'https://lievin219.github.io',
-// credentials:true
-//}));
 const swaggeroptions = {
     definition: {
         openapi: "3.0.0",
