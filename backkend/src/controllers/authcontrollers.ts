@@ -87,7 +87,15 @@ import { blogService, blogServices } from '../services/blog.service.js'
         
    }
  }
- 
+ export const getadmindata=async(req:express.Request,res:express.Response)=>{
+   try{
+      const data=await getdatablogs()
+      return res.status(200).json(data)
+  }
+  catch(error){
+       
+  }
+ }
 
 
     export const login_get=async(req:express.Request,res:express.Response)=>{

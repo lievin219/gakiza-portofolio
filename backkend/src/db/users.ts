@@ -77,6 +77,12 @@ import { required, string } from 'joi'
         subdescription:{
      type:String,
      required:true
+        },
+        likes:{
+             
+        },
+        comment:{
+          type:String
         }
 
     }))
@@ -111,6 +117,7 @@ import { required, string } from 'joi'
           type:String,
           required:true
       }
+
    }))
     const blogschema=new mongoose.Schema(({
       image:{
