@@ -305,7 +305,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   type: string
  *                   description: Error message.
  */
-                app.put('blog/edit/:id',editblog)
+                app.put('/blog/edit/:id',editblog)
                 app.patch("/comments/:id",require_auth,update_comment)  
                  /**
  * @swagger
