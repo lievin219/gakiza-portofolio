@@ -19,11 +19,18 @@ app.use(express.json())
     
     
      app.use(cookie_parser())
-
-app.use(cors({
-  origin:'https://lievin219.github.io',
-  credentials:true
-}));
+     app.use(cors({
+      origin: '*',
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      exposedHeaders: ['Authorization'],
+      credentials: true
+    }));
+  
+//app.use(cors({
+ // origin:'https://lievin219.github.io',
+ // credentials:true
+//}));
   
   const swaggeroptions={
     definition: {
