@@ -195,10 +195,10 @@ import { isStrongPassword } from 'validator'
          }  
 export const editblog=async(req:express.Request,res:express.Response)=>{
     try{
-                 const id =req.params
+                 const _id =req.params
              const {picture,subtitle,subdescription}=req.body 
 
- const newiteming:any=await databasefor_blogs.findById(id)  
+ const newiteming:any=await databasefor_blogs.findById(_id)  
   if(!newiteming){
    res.status(400).json({message:'id not found yet'})
   }

@@ -266,7 +266,7 @@ app.get("/logout", log_out);
 *                   type: string
 *                   description: Error message.
 */
-app.put('blog/edit/:id', editblog);
+app.put('/blog/edit/:id', editblog);
 app.patch("/comments/:id", require_auth, update_comment);
 /**
 * @swagger

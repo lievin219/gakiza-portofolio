@@ -127,9 +127,9 @@ export const update_comment = async (req, res) => {
 };
 export const editblog = async (req, res) => {
     try {
-        const id = req.params;
+        const _id = req.params;
         const { picture, subtitle, subdescription } = req.body;
-        const newiteming = await databasefor_blogs.findById(id);
+        const newiteming = await databasefor_blogs.findById(_id);
         if (!newiteming) {
             res.status(400).json({ message: 'id not found yet' });
         }
