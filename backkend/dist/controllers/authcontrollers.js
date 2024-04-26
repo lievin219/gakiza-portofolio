@@ -58,6 +58,14 @@ export const getdata = async (req, res) => {
     catch (error) {
     }
 };
+export const getadmindata = async (req, res) => {
+    try {
+        const data = await getdatablogs();
+        return res.status(200).json(data);
+    }
+    catch (error) {
+    }
+};
 export const login_get = async (req, res) => {
 };
 export const signup_get = async (req, res) => {

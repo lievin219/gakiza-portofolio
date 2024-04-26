@@ -59,6 +59,10 @@ const datafor_blogs = new mongoose.Schema(({
     subdescription: {
         type: String,
         required: true
+    },
+    likes: {},
+    comment: {
+        type: String
     }
 }));
 const blogs_admin = new mongoose.Schema(({

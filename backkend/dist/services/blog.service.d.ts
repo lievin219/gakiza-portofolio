@@ -28,10 +28,14 @@ export declare class blogService {
         picture: string;
         subtitle: string;
         subdescription: string;
+        likes?: any;
+        comment?: string | null | undefined;
     }> & {
         picture: string;
         subtitle: string;
         subdescription: string;
+        likes?: any;
+        comment?: string | null | undefined;
     } & {
         _id: import("mongoose").Types.ObjectId;
     }) | "blog not available" | undefined>;

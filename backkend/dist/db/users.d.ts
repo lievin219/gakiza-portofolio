@@ -27,28 +27,40 @@ export declare const databasefor_blogs: mongoose.Model<{
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 }> & {
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 }>> & mongoose.FlatRecord<{
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>>;
@@ -274,26 +286,36 @@ export declare const getdatablogs: () => mongoose.Query<(mongoose.Document<unkno
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 }> & {
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 })[], mongoose.Document<unknown, {}, {
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 }> & {
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, {}, {
     picture: string;
     subtitle: string;
     subdescription: string;
+    likes?: any;
+    comment?: string | null | undefined;
 }, "find">;
 export declare const getallcomments: () => mongoose.Query<(mongoose.Document<unknown, {}, {
     email: string;

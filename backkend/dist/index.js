@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import swaggerjsdoc from 'swagger-jsdoc';
-import { adminpage, datablog_blogposting, gakiapage, getalcomments, getallblogs, getdata, updateBlog } from './controllers/authcontrollers.js';
+import { adminpage, datablog_blogposting, gakiapage, getadmindata, getalcomments, getallblogs, getdata, updateBlog } from './controllers/authcontrollers.js';
 import { blog_post, deletecomment, update_comment } from './controllers/authcontrollers.js';
 import { comment_post, contact_get, log_out, login_post, } from './controllers/authcontrollers.js';
 import { signup_post } from './controllers/authcontrollers.js';
@@ -359,6 +359,7 @@ app.get('/homi', (req, res) => {
 app.post("/blog", require_auth, blog_post);
 app.post('/log', datablog_blogposting);
 app.get('/getall', getdata);
+app.get('/getdata', isAdmin_auth, getadmindata);
 /**
 * @swagger
 * /comment:
