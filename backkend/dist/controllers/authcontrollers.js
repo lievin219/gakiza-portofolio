@@ -4,6 +4,7 @@ import { blogschemamodel, deleteuserbyid } from '../db/users.js';
 import { commentschemamodel, getuserByid } from '../db/users.js';
 import { adminvali_date, adminvali_month, authschema, blogshema, comment_validate, contact_validate, loginSchema, blogs_data } from '../midleware/validate_schema.js';
 import { contactschemamodel, createUser, login, getdatablogs } from '../db/users.js';
+import { blogServices } from '../services/blog.service.js';
 const handleerrors = (err) => {
     console.log(err.message, err.code);
     let errors = { email: "", password: "" };
@@ -207,5 +208,10 @@ export const gakiapage = async (req, res) => {
     catch (error) {
         res.status(400).json({ error });
     }
+};
+export const updateBlog = async (req, res) => {
+    const id = req.params.id;
+    const blog = await blogServices.updateBlog(id, req.body);
+    res.json({ message: "Blog updated successfully", blog });
 };
 //# sourceMappingURL=authcontrollers.js.map

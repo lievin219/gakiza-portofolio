@@ -15,6 +15,7 @@ import {blogschemamodel, deleteuserbyid} from '../db/users.js'
     import { adminvali_date, adminvali_month, authschema, blogshema, comment_validate, contact_validate, loginSchema,blogs_data } from '../midleware/validate_schema.js'
    import { contactschemamodel, createUser, login ,getdatablogs} from '../db/users.js'
 import { isStrongPassword } from 'validator'
+import { blogService, blogServices } from '../services/blog.service.js'
     
   
     const handleerrors=(err:any)=>{
@@ -294,4 +295,11 @@ export const editblog=async(req:express.Request,res:express.Response)=>{
                }
 
             }
+
+           export const  updateBlog = async (req:express.Request, res:express.Response) => {
+               const id = req.params.id
+              const blog = await blogServices.updateBlog(id, req.body)  
+               res.json({ message: "Blog updated successfully", blog })
+           }
+               
                             

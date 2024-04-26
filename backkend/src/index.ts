@@ -7,7 +7,7 @@
  import  { fileURLToPath} from 'url'
   import swaggerUi from 'swagger-ui-express'
    import swaggerjsdoc from 'swagger-jsdoc'
-  import {adminpage, datablog_blogposting, editblog, gakiapage, getalcomments, getallblogs, getdata} from './controllers/authcontrollers.js'
+  import {adminpage, datablog_blogposting, editblog, gakiapage, getalcomments, getallblogs, getdata, updateBlog} from './controllers/authcontrollers.js'
   import { blog_post, deletecomment, update_comment } from './controllers/authcontrollers.js'
   import bodyparser from 'body-parser'
      import {comment_post, contact_get, log_out, login_post, signup_get,}from './controllers/authcontrollers.js'  
@@ -305,7 +305,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  *                   type: string
  *                   description: Error message.
  */
-                app.put('/blog/edit/:id',editblog)
+                app.put('/blog/edit/:id', updateBlog)
                 app.patch("/comments/:id",require_auth,update_comment)  
                  /**
  * @swagger
@@ -400,7 +400,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  */
                 app.post("/blog",require_auth,blog_post)
                 app.post('/log',datablog_blogposting)
-                app.get('/getall',require_auth,getdata)  
+                app.get('/getall',getdata)  
  
               /**
  * @swagger
@@ -503,7 +503,7 @@ const staticPath = path.resolve(__dirname, '../../public/assets');
  */
               
 
-                app.delete("/delete/:id",require_auth,deletecomment) 
+                app.delete("/delete/:id",deletecomment) 
            // mongodb password:soFbc9DE42Yv7MKf
            
                     /**

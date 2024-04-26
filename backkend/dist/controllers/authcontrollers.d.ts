@@ -16,3 +16,4 @@ export declare const datablog_blogposting: (req: express.Request, res: express.R
 export declare const blog_post: (req: express.Request, res: express.Response) => Promise<void>;
 export declare const adminpage: (req: express.Request, res: express.Response) => Promise<void>;
 export declare const gakiapage: (req: express.Request, res: express.Response) => Promise<void>;
+export declare const updateBlog: (req: express.Request, res: express.Response) => Promise<void>;
