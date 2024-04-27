@@ -40,7 +40,7 @@ app.use(cors({
       },
       servers: [
         {
-          url: "http://localhost:3000"
+          url: "https://gakiza-portofolio.onrender.com"
         }
       ],
       components: {
