@@ -222,4 +222,20 @@ export const updateBlog = async (req, res) => {
     const blog = await blogServices.updateBlog(id, req.body);
     res.json({ message: "Blog updated successfully", blog });
 };
+export const deleteBlog = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedBlog = await databasefor_blogs.findByIdAndDelete(id);
+        if (!deletedBlog) {
+            res.status(404).json({ message: 'blog not found' });
+        }
+        else {
+            res.status(204).send();
+        }
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
 //# sourceMappingURL=authcontrollers.js.map

@@ -18,3 +18,4 @@ export declare const blog_post: (req: express.Request, res: express.Response) =>
 export declare const adminpage: (req: express.Request, res: express.Response) => Promise<void>;
 export declare const gakiapage: (req: express.Request, res: express.Response) => Promise<void>;
 export declare const updateBlog: (req: express.Request, res: express.Response) => Promise<void>;
+export declare const deleteBlog: (req: express.Request, res: express.Response) => Promise<void>;
