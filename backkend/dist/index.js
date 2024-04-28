@@ -359,7 +359,7 @@ app.get('/homi', (req, res) => {
 app.post("/blog", require_auth, blog_post);
 app.post('/log', datablog_blogposting);
 app.get('/getall', getdata);
-app.get('/getdata', getadmindata);
+app.get('/getdata', isAdmin_auth, getadmindata);
 /**
 * @swagger
 * /comment:
