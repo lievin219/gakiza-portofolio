@@ -59,7 +59,7 @@ it('should return an a logged in user', function(done) {
 
 
 });
-describe('SIGN UP API', () => {
+describe('Carting  API', () => {
 
   it('should allow uses who have valid email too sign up', function(done) {
     this.timeout(15000);
@@ -85,7 +85,7 @@ describe('SIGN UP API', () => {
   
   
   });
-  describe('contact us!', () => {
+  describe('contact Api!', () => {
 
     it('should allow uses who have valid email too contact us', function(done) {
       this.timeout(15000);
@@ -111,7 +111,7 @@ describe('SIGN UP API', () => {
     
     
     });
-    describe('contact us!', () => {
+    describe('Comment section Api!', () => {
 
       it('should allow a user to  delete a blog', function(done) {
         this.timeout(15000);
@@ -145,7 +145,7 @@ describe('SIGN UP API', () => {
           done();
       });
   });
-  it('should allow  blog', function(done) {
+  it('should allow  a user to comment', function(done) {
     this.timeout(15000);
     const credentials={email:"45678mm",message:"wertuijhgfcvgbhj"}
     request(app)
